@@ -15,12 +15,10 @@ public class LoginService {
     UserRepository userRepo;
 
     public boolean performLogin(LoginAPI loginAPI) {
-        User user = new User();
-        user.setUsername(loginAPI.getUsername());
-        user.setPassword(loginAPI.getPassword());
-        if(userRepo.findByUsername(user.getUsername())==null){
-            return false;
+        User foundUser = userRepo.findByUsernameAndPassword(loginAPI.getUsername(),loginAPI.getPassword());
+        if (foundUser != null ){
+            return true;
         }
-        return true;
+        return false;
     }
 }

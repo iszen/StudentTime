@@ -8,5 +8,5 @@ import ro.ebs.studenttime.model.User;
  */
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    public User findByUsername(String username);
+    User findByUsernameAndPassword(String username, String password);
 }
