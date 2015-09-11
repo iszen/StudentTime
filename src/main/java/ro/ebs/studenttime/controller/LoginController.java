@@ -23,6 +23,7 @@ public class LoginController {
     @RequestMapping(value = "/")
     public String homePage(Model model) {
         model.addAttribute("login", new LoginAPI());
+        System.out.println("Login hihi");
         return "login";
     }
 
