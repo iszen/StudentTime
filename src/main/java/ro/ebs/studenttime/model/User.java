@@ -14,8 +14,12 @@ public class User {
     @GeneratedValue
     private Integer id;
 
+    private String firstname;
+    private String lastname;
     private String username;
     private String password;
+    private String email;
+    private String workplace;
 
     public Integer getId(){
         return id;
@@ -37,12 +41,49 @@ public class User {
         this.username = username;
     }
 
+    public String getWorkplace() {
+        return workplace;
+    }
+
+    public void setWorkplace(String workplace) {
+        this.workplace = workplace;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "password='" + password + '\'' +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", username='" + username + '\'' +
-                ", id=" + id +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", workplace='" + workplace + '\'' +
                 '}';
     }
+
 }
