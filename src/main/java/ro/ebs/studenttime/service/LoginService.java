@@ -15,8 +15,8 @@ public class LoginService {
     UserRepository userRepo;
 
     public boolean performLogin(LoginAPI loginAPI) {
-        User foundUser = userRepo.findByUsernameAndPassword(loginAPI.getUsername(),loginAPI.getPassword());
-        if (foundUser != null ){
+        User foundUser = userRepo.findByUsername(loginAPI.getUsername());
+        if (foundUser != null && foundUser.getPassword().equals(loginAPI.getPassword())){
             return true;
         }
         return false;
