@@ -51,16 +51,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">Student Time App</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <form class="navbar-form navbar-right">
                 <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
+                    <input type="text" placeholder="Username" class="form-control">
                 </div>
                 <div class="form-group">
                     <input type="password" placeholder="Password" class="form-control">
                 </div>
+                <button type="submit" class="btn btn-success">Log in</button>
                 <button type="submit" class="btn btn-success">Sign in</button>
             </form>
         </div>
@@ -71,47 +72,33 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Hello, world!</h1>
+        <h1>Student Time</h1>
 
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a
-            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
-            unique.</p>
+        <p>This is a website meant to help students to enhance their working skills, financial stability and CV skills.</p>
 
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
     </div>
 </div>
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Jobs</a></li>
+    <li><a data-toggle="tab" href="#menu1">Volunteering</a></li>
+    <li><a data-toggle="tab" href="#menu2">Notice</a></li>
+</ul>
 
-<div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Heading</h2>
-
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui. </p>
-
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Heading</h2>
-
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui. </p>
-
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Heading</h2>
-
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                fermentum massa justo sit amet risus.</p>
-
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+        <h3>Jobs</h3>
+        <p>Some content.</p>
     </div>
+    <div id="menu1" class="tab-pane fade">
+        <h3>Volunteering</h3>
+        <p>Some content in menu 1.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+        <h3>Notice</h3>
+        <p>Some content in menu 2.</p>
+    </div>
+</div>
 
     <hr>
 
@@ -120,7 +107,6 @@
     </footer>
 </div>
 <!-- /container -->
-
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
