@@ -16,9 +16,16 @@ public class SignInService {
     UserRepository userRepo;
 
     public boolean performSignIn(SigninAPI signinAPI){
-        User foundUser = userRepo.findByUsername(signinAPI.getUsername());
-        if(foundUser != null){
-            userRepo.save(foundUser);
+        User newUser = new User();
+        newUser.setEmail(signinAPI.getEmail());
+        newUser.setFirstname(signinAPI.getFirstname());
+        newUser.setLastname(signinAPI.getLastname());
+        newUser.setPassword(signinAPI.getPassword());
+        newUser.setUsername(signinAPI.getUsername());
+        newUser.setWorkplace(signinAPI.getWorkplace());
+
+        if(userRepo.findByUsername(newUser.getUsername()) == null){
+            userRepo.save(newUser);
             return true;
         }
         return false;
