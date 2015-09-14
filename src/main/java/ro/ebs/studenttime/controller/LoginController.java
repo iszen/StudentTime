@@ -22,8 +22,8 @@ public class LoginController {
 
     @RequestMapping(value = "/")
     public String homePage(Model model) {
-        model.addAttribute("login", new LoginAPI());
-        return "login";
+        model.addAttribute("index", new LoginAPI());
+        return "index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
