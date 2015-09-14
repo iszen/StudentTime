@@ -12,7 +12,7 @@
     <title></title>
 </head>
 <body>
-<form:form method="post" action="login" modelAttribute="login" >
+<form:form method="post" action="signin" modelAttribute="signin" >
   <label for="firstname">First Name: </label>
   <form:input size="20" path="firstname"/><br/>
   <label for="lastname">Last Name: </label>
@@ -23,7 +23,7 @@
   <form:password size="20" path="password"/><br/>
   <label for="workplace">Workplace/University: </label>
   <form:input size="20" path="workplace"/><br/>
-  <input type="submit" value="Submit"/>
+  <input type="submit" value="Submit" />
 </form:form>
 </body>
 </html>
