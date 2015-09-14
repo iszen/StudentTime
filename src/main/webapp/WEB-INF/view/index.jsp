@@ -22,7 +22,7 @@
     <title>Jumbotron Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../webapp/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
