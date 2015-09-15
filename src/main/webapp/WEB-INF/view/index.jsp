@@ -19,7 +19,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>Student Time App</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../webapp/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -70,7 +70,7 @@
 </nav>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
+<div class="studenttime">
     <div class="container">
         <h1>Student Time</h1>
 
@@ -80,23 +80,23 @@
     </div>
 </div>
 <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Jobs</a></li>
-    <li><a data-toggle="tab" href="#menu1">Volunteering</a></li>
-    <li><a data-toggle="tab" href="#menu2">Notice</a></li>
+    <li class="active"><a data-toggle="tab" href="#jobs">Jobs</a></li>
+    <li><a data-toggle="tab" href="#volunteering">Volunteering</a></li>
+    <li><a data-toggle="tab" href="#notice">Notice</a></li>
 </ul>
 
 <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
+    <div id="jobs" class="tab-pane fade in active">
         <h3>Jobs</h3>
-        <p>Some content.</p>
+        <p>In this section you will find all jobs from all fields of work. Part-time, full-time or an internship, you can find or post any type of opportunity.</p>
     </div>
-    <div id="menu1" class="tab-pane fade">
+    <div id="volunteering" class="tab-pane fade">
         <h3>Volunteering</h3>
-        <p>Some content in menu 1.</p>
+        <p>In this section you will find a .</p>
     </div>
-    <div id="menu2" class="tab-pane fade">
+    <div id="notice" class="tab-pane fade">
         <h3>Notice</h3>
-        <p>Some content in menu 2.</p>
+        <p>Some content in notice.</p>
     </div>
 </div>
 
