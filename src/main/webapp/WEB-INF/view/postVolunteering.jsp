@@ -67,14 +67,63 @@
 <div class="jumbotron">
   <p class="container">
   <div align="center">
-  <h1>Student Time</h1>
+    <h1>Student Time</h1>
 
-  <p>This is a website meant to help students to enhance their working skills, financial stability and CV
-    skills.</p>
+    <h3>This is a website meant to help students to enhance their working skills, financial stability and CV
+      skills.</h3>
+    <p>To post a volunteer work please fill out all fields.</p>
+
+  </div>
 
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form>
 
+        <div class="input-group">
+          <span class="input-group-addon" id="title">Title</span>
+          <input type="text" class="form-control" placeholder="Voluntary title..." aria-describedby="basic-addon1">
+        </div>
+        <br/>
+        <div class="input-group">
+          <span class="input-group-addon" id="location">Location</span>
+          <input type="text" class="form-control" placeholder="Location..." aria-describedby="basic-addon1">
+        </div>
+        <br/>
+        <div class="input-group">
+          <span class="input-group-addon" id="begin">Begin date</span>
+          <input type="text" class="form-control" placeholder="Begin date..." aria-describedby="basic-addon1">
+        </div>
+        <br/>
+        <div class="input-group">
+          <span class="input-group-addon" id="end">End date</span>
+          <input type="text" class="form-control" placeholder="End date..." aria-describedby="basic-addon1">
+        </div>
+        <br/>
+        <div class="input-group">
+          <span class="input-group-addon" id="nrPersons">Number of required persons</span>
+          <input type="text" class="form-control" placeholder="How many people do you need?" aria-describedby="basic-addon1">
+        </div>
+        <br/>
+        <div class="input-group">
+          <span class="input-group-addon" id="salary">Certificate</span>
+          <input type="text" class="form-control" placeholder="Do they get a certificate?" aria-describedby="basic-addon1">
+        </div>
+        <br/>
+        <div class="input-group">
+          <span class="input-group-addon" id="description">Description</span>
+          <input type="text" class="form-control" placeholder="Describe the voluntary..." aria-describedby="basic-addon1">
+        </div>
+
+      </form>
+
+      <span class="input-group-btn" >
+        <button class="btn btn-success pull-right" type="button">Post</button>
+      </span>
+    </div>
+  </div>
 </div>
-Post a Job Form
+
 </body>
 </html>

@@ -43,8 +43,23 @@
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
+    <form:form class="navbar-form navbar-left">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Post
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="postJob">Job</a></li>
+                <li><a href="postVolunteering">Volunteer work</a></li>
+                <li><a href="postNotice">Notice</a></li>
+            </ul>
+        </div>
+    </form:form>
     <div class="container">
         <div class="navbar-header">
+
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -52,20 +67,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <form:form class="navbar-form navbar-left">
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Post
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="postJob">Job</a></li>
-                        <li><a href="postVolunteering">Volunteer work</a></li>
-                        <li><a href="postNotice">Notice</a></li>
-                    </ul>
-                </div>
-            </form:form>
+
             <a class="navbar-brand" href="#">Student Time</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">

@@ -85,38 +85,43 @@
           <span class="input-group-addon" id="title">Title</span>
           <input type="text" class="form-control" placeholder="Job title..." aria-describedby="basic-addon1">
         </div>
-
+        <br/>
         <div class="input-group">
           <span class="input-group-addon" id="location">Location</span>
           <input type="text" class="form-control" placeholder="Location..." aria-describedby="basic-addon1">
         </div>
-
+        <br/>
         <div class="input-group">
           <span class="input-group-addon" id="begin">Begin date</span>
           <input type="text" class="form-control" placeholder="Begin date..." aria-describedby="basic-addon1">
         </div>
-
+        <br/>
         <div class="input-group">
           <span class="input-group-addon" id="end">End date</span>
           <input type="text" class="form-control" placeholder="End date..." aria-describedby="basic-addon1">
         </div>
-
+        <br/>
         <div class="input-group">
           <span class="input-group-addon" id="nrPersons">Number of required persons</span>
           <input type="text" class="form-control" placeholder="How many people do you need?" aria-describedby="basic-addon1">
         </div>
-
+        <br/>
         <div class="input-group">
           <span class="input-group-addon" id="salary">Salary</span>
           <input type="text" class="form-control" placeholder="How much pay do they get?" aria-describedby="basic-addon1">
         </div>
-
+        <br/>
         <div class="input-group">
           <span class="input-group-addon" id="description">Description</span>
           <input type="text" class="form-control" placeholder="Describe the job..." aria-describedby="basic-addon1">
         </div>
 
       </form>
+
+      <span class="input-group-btn" >
+        <button class="btn btn-success pull-right" type="button">Post</button>
+      </span>
+
     </div>
   </div>
 </div>
