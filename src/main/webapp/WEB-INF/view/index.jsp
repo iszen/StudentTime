@@ -52,6 +52,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <form:form class="navbar-form navbar-left" method="get" action="post" modelattribute="post">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Post &raquo;</a>
+            </form:form>
             <a class="navbar-brand" href="#">Student Time App</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -74,13 +77,14 @@
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-    <div class="container">
+    <p class="container">
         <h1>Student Time</h1>
 
         <p>This is a website meant to help students to enhance their working skills, financial stability and CV
             skills.</p>
 
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <form:form method="get" action="find" modelAttribute="find"><a class="btn btn-primary btn-lg" href="#" role="button">Find &raquo;</a></form:form>
+
     </div>
 </div>
 <ul class="nav nav-tabs">
