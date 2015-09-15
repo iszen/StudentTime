@@ -83,8 +83,6 @@
         <p>This is a website meant to help students to enhance their working skills, financial stability and CV
             skills.</p>
 
-        <form:form method="get" action="find" modelAttribute="find"><a class="btn btn-primary btn-lg" href="#" role="button">Find &raquo;</a></form:form>
-
     </div>
 </div>
 <ul class="nav nav-tabs">
