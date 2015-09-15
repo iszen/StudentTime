@@ -55,6 +55,9 @@
             <a class="navbar-brand" href="#">Student Time App</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+            <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
+                <button type="submit" class="btn btn-success">Sign in</button>
+            </form:form>
             <form:form class="navbar-form navbar-right" method="post" action="login" modelAttribute="login">
                 <div class="form-group">
                     <form:input type="text" placeholder="Username" class="form-control" path="username"/>
@@ -63,7 +66,6 @@
                     <form:password placeholder="Password" class="form-control" path="password"/>
                 </div>
                 <button type="submit" class="btn btn-success">Log in</button>
-                <button type="submit" class="btn btn-success">Sign in</button>
             </form:form>
         </div>
         <!--/.navbar-collapse -->

@@ -22,7 +22,7 @@ public class SignInController {
     @RequestMapping(value = "/signin", method = RequestMethod.GET)
     public String signinPage(Model model){
         model.addAttribute("signin", new SigninAPI());
-        return "signin";
+        return "signIn";
     }
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
