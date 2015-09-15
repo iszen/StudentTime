@@ -58,40 +58,68 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <form:form class="navbar-form navbar-left" method="get" action="post" modelattribute="post">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Post &raquo;</a>
-      </form:form>
-      <a class="navbar-brand" href="#">Student Time App</a>
+      <a class="navbar-brand" href="#">Student Time</a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
-        <button type="submit" class="btn btn-success">Sign in</button>
-      </form:form>
-      <form:form class="navbar-form navbar-right" method="post" action="login" modelAttribute="login">
-        <div class="form-group">
-          <form:input type="text" placeholder="Username" class="form-control" path="username"/>
-        </div>
-        <div class="form-group">
-          <form:password placeholder="Password" class="form-control" path="password"/>
-        </div>
-        <button type="submit" class="btn btn-success">Log in</button>
-      </form:form>
-    </div>
-    <!--/.navbar-collapse -->
   </div>
 </nav>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <p class="container">
-  <h1>Student Time</h1>
+  <div align="center">
+    <h1>Student Time</h1>
 
-  <p>This is a website meant to help students to enhance their working skills, financial stability and CV
-    skills.</p>
+    <h3>This is a website meant to help students to enhance their working skills, financial stability and CV
+      skills.</h3>
+  <p>To post a job please fill out all fields.</p>
 
-  <form:form method="get" action="find" modelAttribute="find"><a class="btn btn-primary btn-lg" href="#" role="button">Find &raquo;</a></form:form>
+  </div>
 
 </div>
-Post a Job Form
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="title">Title</span>
+          <input type="text" class="form-control" placeholder="Job title..." aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="location">Location</span>
+          <input type="text" class="form-control" placeholder="Location..." aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="begin">Begin date</span>
+          <input type="text" class="form-control" placeholder="Begin date..." aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="end">End date</span>
+          <input type="text" class="form-control" placeholder="End date..." aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="nrPersons">Number of required persons</span>
+          <input type="text" class="form-control" placeholder="How many people do you need?" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="salary">Salary</span>
+          <input type="text" class="form-control" placeholder="How much pay do they get?" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="description">Description</span>
+          <input type="text" class="form-control" placeholder="Describe the job..." aria-describedby="basic-addon1">
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Bella
   Date: 9/15/2015
-  Time: 11:21 AM
+  Time: 11:30 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -58,41 +58,23 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <form:form class="navbar-form navbar-left" method="get" action="post" modelattribute="post">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Post &raquo;</a>
-      </form:form>
-      <a class="navbar-brand" href="#">Student Time App</a>
+      <a class="navbar-brand" href="#">Student Time</a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
-        <button type="submit" class="btn btn-success">Sign in</button>
-      </form:form>
-      <form:form class="navbar-form navbar-right" method="post" action="login" modelAttribute="login">
-        <div class="form-group">
-          <form:input type="text" placeholder="Username" class="form-control" path="username"/>
-        </div>
-        <div class="form-group">
-          <form:password placeholder="Password" class="form-control" path="password"/>
-        </div>
-        <button type="submit" class="btn btn-success">Log in</button>
-      </form:form>
-    </div>
-    <!--/.navbar-collapse -->
   </div>
 </nav>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <p class="container">
+  <div align="center">
   <h1>Student Time</h1>
 
   <p>This is a website meant to help students to enhance their working skills, financial stability and CV
     skills.</p>
 
-  <form:form method="get" action="find" modelAttribute="find"><a class="btn btn-primary btn-lg" href="#" role="button">Find &raquo;</a></form:form>
+</div>
 
 </div>
-Post a Voluntee work Form
+Post a Job Form
 </body>
 </html>
-

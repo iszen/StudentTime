@@ -53,17 +53,18 @@
                 <span class="icon-bar"></span>
             </button>
             <form:form class="navbar-form navbar-left">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Post
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="postJob">Job</a></li>
-                    <li><a href="postVolunteering">Volunteer work</a></li>
-                    <li><a href="postNotice">Notice</a></li>
-                </ul>
-            </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Post
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="postJob">Job</a></li>
+                        <li><a href="postVolunteering">Volunteer work</a></li>
+                        <li><a href="postNotice">Notice</a></li>
+                    </ul>
+                </div>
             </form:form>
             <a class="navbar-brand" href="#">Student Time</a>
         </div>
@@ -88,12 +89,13 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <p class="container">
-        <h1>Student Time</h1>
 
-        <p>This is a website meant to help students to enhance their working skills, financial stability and CV
-            skills.</p>
+    <h1>Student Time</h1>
 
-    </div>
+    <p>This is a website meant to help students to enhance their working skills, financial stability and CV
+        skills.</p>
+
+</div>
 </div>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home"><h2>Jobs</h2></a></li>
@@ -105,6 +107,18 @@
     <div id="home" class="tab-pane fade in active">
         <h3>Jobs</h3>
 
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Find a job</button>
+      </span>
+                    <input type="text" class="form-control" placeholder="Search for a job...">
+                </div>
+                <!-- /input-group -->
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
         <p>Some content.</p>
     </div>
     <div id="menu1" class="tab-pane fade">
