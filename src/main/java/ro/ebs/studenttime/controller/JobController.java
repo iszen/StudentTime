@@ -18,7 +18,7 @@ public class JobController {
     JobService jobService;
 
     @RequestMapping(value = "/postJob", method = RequestMethod.GET)
-    public String getPostJobForm(@ModelAttribute("postJob") JobAPI jobAPI) {
+    public String getPostJobForm() {
         return "postJob";
     }
     @RequestMapping(value = "/postJob", method = RequestMethod.POST)

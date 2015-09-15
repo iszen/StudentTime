@@ -20,7 +20,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Student Time App</title>
+    <title>Student Time</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../webapp/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +54,7 @@
             </button>
             <form:form class="navbar-form navbar-left">
             <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     Post
                     <span class="caret"></span>
                 </button>
@@ -65,7 +65,7 @@
                 </ul>
             </div>
             </form:form>
-            <a class="navbar-brand" href="#">Student Time App</a>
+            <a class="navbar-brand" href="#">Student Time</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">

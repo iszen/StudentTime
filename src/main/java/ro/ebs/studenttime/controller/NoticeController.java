@@ -1,6 +1,7 @@
 package ro.ebs.studenttime.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +13,7 @@ import ro.ebs.studenttime.service.VolunteeringService;
 /**
  * Created by Bella on 9/14/2015.
  */
+@Controller
 public class NoticeController {
     @Autowired
     NoticeService noticeService;
@@ -24,7 +26,7 @@ public class NoticeController {
     }
 
     @RequestMapping(value = "/postNotice", method = RequestMethod.GET)
-    public String getPostNoticeForm(@ModelAttribute("postNotice") NoticeAPI noticeAPI) {
+    public String getPostNoticeForm() {
         return "postNotice";
     }
 }
