@@ -20,7 +20,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>Student Time App</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../webapp/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -82,9 +82,9 @@
     </div>
 </div>
 <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Jobs</a></li>
-    <li><a data-toggle="tab" href="#menu1">Volunteering</a></li>
-    <li><a data-toggle="tab" href="#menu2">Notice</a></li>
+    <li class="active"><a data-toggle="tab" href="#home"><h2>Jobs</h2></a></li>
+    <li><a data-toggle="tab" href="#menu1"><h2>Volunteering</h2></a></li>
+    <li><a data-toggle="tab" href="#menu2"><h2>Notice</h2></a></li>
 </ul>
 
 <div class="tab-content">
@@ -108,7 +108,7 @@
 <hr>
 
 <footer>
-    <p>&copy; Company 2014</p>
+    <p>&copy; StudentTime 2015</p>
 </footer>
 </div>
 <!-- /container -->
