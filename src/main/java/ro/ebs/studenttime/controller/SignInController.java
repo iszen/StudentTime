@@ -20,15 +20,15 @@ public class SignInController {
     private SignInService service;
 
     @RequestMapping(value = "/signin", method = RequestMethod.GET)
-    public String signinPage(Model model){
+    public String signinPage(Model model) {
         model.addAttribute("signin", new SigninAPI());
         return "signIn";
     }
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
-    public String signin(@ModelAttribute("signin")SigninAPI signinAPI) {
-        if(service.performSignIn(signinAPI))
-            return "index";
-        else return "errorSignin";
+    public String signin(@ModelAttribute("signin") SigninAPI signinAPI) {
+        if (service.performSignIn(signinAPI))
+            return "successLogin";
+        else return "errorSignIn";
     }
 }
