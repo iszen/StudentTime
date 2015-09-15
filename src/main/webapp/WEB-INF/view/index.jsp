@@ -59,9 +59,9 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="signin">Job</a></li>
-                    <li><a href="#">Volunteering</a></li>
-                    <li><a href="#">Notice</a></li>
+                    <li><a href="postJob">Job</a></li>
+                    <li><a href="postVolunteering">Volunteer work</a></li>
+                    <li><a href="postNotice">Notice</a></li>
                 </ul>
             </div>
             </form:form>

@@ -22,4 +22,9 @@ public class NoticeController {
             return "successPostNotice";
         else return "errorPostNotice";
     }
+
+    @RequestMapping(value = "/postNotice", method = RequestMethod.GET)
+    public String getPostNoticeForm(@ModelAttribute("postNotice") NoticeAPI noticeAPI) {
+        return "postNotice";
+    }
 }

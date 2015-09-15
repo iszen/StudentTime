@@ -17,6 +17,10 @@ public class JobController {
     @Autowired
     JobService jobService;
 
+    @RequestMapping(value = "/postJob", method = RequestMethod.GET)
+    public String getPostJobForm(@ModelAttribute("postJob") JobAPI jobAPI) {
+        return "postJob";
+    }
     @RequestMapping(value = "/postJob", method = RequestMethod.POST)
     public String postJob(@ModelAttribute("postJob") JobAPI jobAPI) {
         if(jobService.postJob(jobAPI))

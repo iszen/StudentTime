@@ -16,10 +16,15 @@ public class VolunteeringController {
     @Autowired
     VolunteeringService volunteeringService;
 
-    @RequestMapping(value = "/postVol", method = RequestMethod.POST)
+    @RequestMapping(value = "/postVolunteering", method = RequestMethod.POST)
     public String postVolunteering(@ModelAttribute("postVol") VolunteeringAPI volAPI) {
         if(volunteeringService.postVolunteering(volAPI))
             return "successPostVol";
         else return "errorPostVol";
+    }
+
+    @RequestMapping(value = "/postVolunteering", method = RequestMethod.GET)
+    public String getPostVolunteeringForm(@ModelAttribute("postVolunteering") VolunteeringAPI volAPI) {
+        return "postVolunteering";
     }
 }
