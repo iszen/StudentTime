@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,16 +55,16 @@
             <a class="navbar-brand" href="#">Student Time App</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
+            <form:form class="navbar-form navbar-right" method="post" action="login" modelAttribute="login">
                 <div class="form-group">
-                    <input type="text" placeholder="Username" class="form-control">
+                    <form:input type="text" placeholder="Username" class="form-control" path="username"/>
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
+                    <form:password placeholder="Password" class="form-control" path="password"/>
                 </div>
                 <button type="submit" class="btn btn-success">Log in</button>
                 <button type="submit" class="btn btn-success">Sign in</button>
-            </form>
+            </form:form>
         </div>
         <!--/.navbar-collapse -->
     </div>
@@ -74,7 +75,8 @@
     <div class="container">
         <h1>Student Time</h1>
 
-        <p>This is a website meant to help students to enhance their working skills, financial stability and CV skills.</p>
+        <p>This is a website meant to help students to enhance their working skills, financial stability and CV
+            skills.</p>
 
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
     </div>
@@ -88,23 +90,26 @@
 <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
         <h3>Jobs</h3>
+
         <p>Some content.</p>
     </div>
     <div id="menu1" class="tab-pane fade">
         <h3>Volunteering</h3>
+
         <p>Some content in menu 1.</p>
     </div>
     <div id="menu2" class="tab-pane fade">
         <h3>Notice</h3>
+
         <p>Some content in menu 2.</p>
     </div>
 </div>
 
-    <hr>
+<hr>
 
-    <footer>
-        <p>&copy; Company 2014</p>
-    </footer>
+<footer>
+    <p>&copy; Company 2014</p>
+</footer>
 </div>
 <!-- /container -->
 

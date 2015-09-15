@@ -22,13 +22,13 @@ public class LoginController {
 
     @RequestMapping(value = "/")
     public String homePage(Model model) {
-        model.addAttribute("index", new LoginAPI());
+        model.addAttribute("login", new LoginAPI());
         return "index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute("login") LoginAPI loginAPI) {
-        if(service.performLogin(loginAPI))
+        if (service.performLogin(loginAPI))
             return "successLogin";
         else return "errorLogin";
     }
