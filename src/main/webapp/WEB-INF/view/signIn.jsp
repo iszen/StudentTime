@@ -47,7 +47,8 @@
         <label class="control-label col-sm-2" for="firstname">First Name:</label>
 
         <div class="col-sm-10">
-            <form:input type="text" class="form-control" id="firstname" placeholder="Firstname" path="firstname"/>
+            <form:input type="text" class="form-control" id="firstname" placeholder="Firstname" path="firstname"
+                        required="required"/>
         </div>
     </div>
     <div class="form-group">
@@ -55,7 +56,7 @@
 
         <div class="col-sm-10">
             <form:input type="text" size="20" class="form-control" id="lastname" placeholder="Lastname"
-                        path="lastname"/>
+                        path="lastname" required="required"/>
         </div>
     </div>
     <div class="form-group">
@@ -63,14 +64,15 @@
 
         <div class="col-sm-10">
             <form:input type="text" size="20" class="form-control" id="username" placeholder="Username"
-                        path="username"/>
+                        path="username" required="required"/>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2" for="password">Password:</label>
 
         <div class="col-sm-10">
-            <form:password size="20" class="form-control" id="password" placeholder="Password" path="password"/>
+            <form:password size="20" class="form-control" id="password" placeholder="Password" path="password"
+                           required="required"/>
         </div>
     </div>
     <div class="form-group">
@@ -78,7 +80,7 @@
 
         <div class="col-sm-10">
             <form:input type="text" size="20" class="form-control" id="workplace" placeholder="Workplace/University"
-                        path="workplace"/>
+                        path="workplace" required="required"/>
         </div>
     </div>
     <div class="form-group">
