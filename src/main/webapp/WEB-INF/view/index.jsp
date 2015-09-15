@@ -52,8 +52,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <form:form class="navbar-form navbar-left" method="get" action="post" modelattribute="post">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Post &raquo;</a>
+            <form:form class="navbar-form navbar-left">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Post
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="signin">Job</a></li>
+                    <li><a href="#">Volunteering</a></li>
+                    <li><a href="#">Notice</a></li>
+                </ul>
+            </div>
             </form:form>
             <a class="navbar-brand" href="#">Student Time App</a>
         </div>
