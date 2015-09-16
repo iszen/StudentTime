@@ -6,6 +6,8 @@ import ro.ebs.studenttime.api.LoginAPI;
 import ro.ebs.studenttime.model.User;
 import ro.ebs.studenttime.dao.UserRepository;
 
+import java.util.List;
+
 /**
  * Created by Bella on 9/9/2015.
  */
@@ -20,5 +22,8 @@ public class LoginService {
             return true;
         }
         return false;
+    }
+    public List<User> getUsers(){
+        return userRepo.findAll();
     }
 }

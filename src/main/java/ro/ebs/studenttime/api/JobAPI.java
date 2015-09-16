@@ -69,4 +69,17 @@ public class JobAPI {
     public void setNumberRequiredPersons(int numberRequiredPersons) {
         this.numberRequiredPersons = numberRequiredPersons;
     }
+
+    @Override
+    public String toString() {
+        return "JobAPI{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", location='" + location + '\'' +
+                ", beginDate=" + beginDate +
+                ", endDate=" + endDate +
+                ", numberRequiredPersons=" + numberRequiredPersons +
+                ", salary=" + salary +
+                '}';
+    }
 }

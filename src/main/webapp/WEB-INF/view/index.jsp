@@ -1,5 +1,12 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
+<%@page import="java.util.List" %>
+<%@page import="java.util.Arrays" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
+
 <html lang="en">
 <head>
     <!-- Latest compiled and minified CSS -->
@@ -112,16 +119,26 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="input-group">
+
       <span class="input-group-btn">
         <button class="btn btn-default" type="button">Find a job</button>
       </span>
                     <input type="text" class="form-control" placeholder="Search for a job...">
+
                 </div>
                 <!-- /input-group -->
             </div>
             <!-- /.col-lg-6 -->
         </div>
-        <p>Some content.</p>
+        <br/><br/>
+
+        <p align="center">
+            <c:forEach items="${jobList}" var="job">
+
+                <a href="#"><c:out value="${job.title}"/></a><br/>
+
+            </c:forEach>
+        </p>
     </div>
     <div id="menu1" class="tab-pane fade">
         <h3>Volunteering</h3>

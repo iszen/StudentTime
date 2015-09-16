@@ -6,6 +6,8 @@ import ro.ebs.studenttime.api.JobAPI;
 import ro.ebs.studenttime.dao.JobRepository;
 import ro.ebs.studenttime.model.Job;
 
+import java.util.List;
+
 /**
  * Created by Bella on 9/14/2015.
  */
@@ -14,7 +16,7 @@ public class JobService {
     @Autowired
     JobRepository jobRepo;
 
-    public boolean postJob(JobAPI jobAPI){
+    public boolean postJob(JobAPI jobAPI) {
         Job job = new Job();
         job.setTitle(jobAPI.getTitle());
         job.setDescription(jobAPI.getDescription());
@@ -24,10 +26,14 @@ public class JobService {
         job.setNumberRequiredPersons(jobAPI.getNumberRequiredPersons());
         job.setSalary(jobAPI.getSalary());
 
-       if( jobRepo.save(job)!= null){
-           return true;
-       }
+        if (jobRepo.save(job) != null) {
+            return true;
+        }
         return false;
+    }
+
+    public List<Job> getJobs() {
+        return jobRepo.findAll();
     }
 
 }
