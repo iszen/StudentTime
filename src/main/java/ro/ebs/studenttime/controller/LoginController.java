@@ -14,6 +14,7 @@ import ro.ebs.studenttime.service.JobService;
 import ro.ebs.studenttime.service.LoginService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -25,10 +26,20 @@ public class LoginController {
     @Autowired
     private LoginService service;
 
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String returnHome() {
+       return "index";
+    }
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute("login") LoginAPI loginAPI) {
-        if (service.performLogin(loginAPI))
-            return "successLogin";
+    public String login(@ModelAttribute("login") LoginAPI loginAPI, HttpSession session) {
+        if (service.performLogin(loginAPI)) {
+            session.setAttribute("loggedUserName", loginAPI.getUsername());
+            return "index";
+        }
         else return "errorLogin";
     }
+
+
 }

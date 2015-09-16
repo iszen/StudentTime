@@ -10,6 +10,8 @@ import ro.ebs.studenttime.api.VolunteeringAPI;
 import ro.ebs.studenttime.service.NoticeService;
 import ro.ebs.studenttime.service.VolunteeringService;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by Bella on 9/14/2015.
  */
@@ -26,7 +28,9 @@ public class NoticeController {
     }
 
     @RequestMapping(value = "/postNotice", method = RequestMethod.GET)
-    public String getPostNoticeForm() {
+    public String getPostNoticeForm(HttpSession session) {
+        if(session.getAttribute("loggedUserName")!=null)
         return "postNotice";
+        else return "login";
     }
 }

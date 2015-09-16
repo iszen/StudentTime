@@ -10,6 +10,8 @@ import ro.ebs.studenttime.api.VolunteeringAPI;
 import ro.ebs.studenttime.service.JobService;
 import ro.ebs.studenttime.service.VolunteeringService;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by Bella on 9/14/2015.
  */
@@ -26,7 +28,9 @@ public class VolunteeringController {
     }
 
     @RequestMapping(value = "/postVolunteering", method = RequestMethod.GET)
-    public String getPostVolunteeringForm() {
+    public String getPostVolunteeringForm(HttpSession session) {
+        if(session.getAttribute("loggedUserName")!=null)
         return "postVolunteering";
+        else return "login";
     }
 }

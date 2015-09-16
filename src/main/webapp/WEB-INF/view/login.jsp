@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-<form:form method="post" action="login" modelAttribute="login" >
+<form:form method="post" action="login" >
     <label for="username">Username: </label>
     <form:input size="20" path="username"/><br/>
     <label for="password">Password: </label>

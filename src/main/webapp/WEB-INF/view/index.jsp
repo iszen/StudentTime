@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false" session="true" %>
 
 <html lang="en">
 <head>
@@ -77,6 +77,7 @@
 
             <a class="navbar-brand" href="#">Student Time</a>
         </div>
+        <% if(session.getAttribute("loggedUserName")==null){ %>
         <div id="navbar" class="navbar-collapse collapse">
             <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
                 <button type="submit" class="btn btn-success">Sign up</button>
@@ -91,6 +92,13 @@
                 <button type="submit" class="btn btn-success">Log in</button>
             </form:form>
         </div>
+        <% }else {%>
+        <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
+            <button type="submit" class="btn btn-success">Log out</button>
+        </form:form>
+        <a class="navbar-brand navbar-right" href="#">Welcome <%= session.getAttribute("loggedUserName")%>!</a>
+        <%}%>
+
         <!--/.navbar-collapse -->
     </div>
 </nav>

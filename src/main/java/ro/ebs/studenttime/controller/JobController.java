@@ -11,6 +11,7 @@ import ro.ebs.studenttime.api.LoginAPI;
 import ro.ebs.studenttime.model.Job;
 import ro.ebs.studenttime.service.JobService;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -33,8 +34,10 @@ public class JobController {
     }
 
     @RequestMapping(value = "/postJob", method = RequestMethod.GET)
-    public String getPostJobForm() {
+    public String getPostJobForm(HttpSession session) {
+        if (session.getAttribute("loggedUserName")!=null)
         return "postJob";
+        else return "login";
     }
 
     @RequestMapping(value = "/postJob", method = RequestMethod.POST)
