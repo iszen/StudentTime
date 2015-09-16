@@ -101,8 +101,8 @@
 </div>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home"><h2>Jobs</h2></a></li>
-    <li><a data-toggle="tab" href="#menu1"><h2>Volunteering</h2></a></li>
-    <li><a data-toggle="tab" href="#menu2"><h2>Notice</h2></a></li>
+    <li><a data-toggle="tab" href="#menu1"><h2>Volunteer work</h2></a></li>
+    <li><a data-toggle="tab" href="#menu2"><h2>Notices</h2></a></li>
 </ul>
 
 <div class="tab-content">
