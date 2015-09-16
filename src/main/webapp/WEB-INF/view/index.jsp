@@ -72,7 +72,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
-                <button type="submit" class="btn btn-success">Sign in</button>
+                <button type="submit" class="btn btn-success">Sign up</button>
             </form:form>
             <form:form class="navbar-form navbar-right" method="post" action="login" modelAttribute="login">
                 <div class="form-group">
