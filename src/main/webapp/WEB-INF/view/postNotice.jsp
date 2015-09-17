@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
 <head>
     <!-- Latest compiled and minified CSS -->
@@ -95,15 +96,18 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form>
+            <form:form method="post" action="postNotice" modelAttribute="postNotice">
                 <div class="form-group">
                     <label for="notice">Your notice:</label>
-                    <textarea class="form-control" rows="5" id="notice"></textarea>
+
+                    <form:textarea path="text" class="form-control" rows="5" id="notice"/>
+
                 </div>
-            </form>
-             <span class="input-group-btn" >
-        <button class="btn btn-success pull-right" type="button">Post</button>
-      </span>
+                <span class="input-group-btn" >
+                    <button class="btn btn-success pull-right" type="submit">Post</button>
+                </span>
+            </form:form>
+
         </div>
     </div>
 </div>

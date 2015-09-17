@@ -25,6 +25,10 @@ public class LoginService {
         }
         return false;
     }
+
+    public User getUserByUsername(String username){
+        return userRepo.findByUsername(username);
+    }
     public List<User> getUsers(){
         return userRepo.findAll();
     }

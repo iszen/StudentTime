@@ -10,6 +10,7 @@ import ro.ebs.studenttime.api.JobAPI;
 import ro.ebs.studenttime.api.LoginAPI;
 import ro.ebs.studenttime.model.Job;
 import ro.ebs.studenttime.service.JobService;
+import ro.ebs.studenttime.service.LoginService;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -34,14 +35,15 @@ public class JobController {
     }
 
     @RequestMapping(value = "/postJob", method = RequestMethod.GET)
-    public String getPostJobForm(HttpSession session) {
-        if (session.getAttribute("loggedUserName")!=null)
-        return "postJob";
+    public String getPostJobForm(@ModelAttribute("login") LoginAPI loginAPI, @ModelAttribute("postJob") JobAPI jobAPI, HttpSession session) {
+        if (session.getAttribute("loggedUserName") != null)
+            return "postJob";
         else return "login";
     }
 
     @RequestMapping(value = "/postJob", method = RequestMethod.POST)
-    public String postJob(@ModelAttribute("postJob") JobAPI jobAPI) {
+    public String postJob(@ModelAttribute("postJob") JobAPI jobAPI, HttpSession session) {
+        jobAPI.setOwner(new LoginService().getUserByUsername(session.getAttribute("loggedUserName").toString()));
         if (jobService.postJob(jobAPI))
             return "index";
         else return "postJob";

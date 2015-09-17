@@ -29,4 +29,12 @@ public class Notice {
     public void setText(String text) {
         this.text = text;
     }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
 }

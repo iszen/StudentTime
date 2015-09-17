@@ -2,11 +2,13 @@ package ro.ebs.studenttime.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ro.ebs.studenttime.api.NoticeAPI;
 import ro.ebs.studenttime.api.VolunteeringAPI;
+import ro.ebs.studenttime.service.LoginService;
 import ro.ebs.studenttime.service.NoticeService;
 import ro.ebs.studenttime.service.VolunteeringService;
 
@@ -19,16 +21,20 @@ import javax.servlet.http.HttpSession;
 public class NoticeController {
     @Autowired
     NoticeService noticeService;
+    @Autowired
+    LoginService logService;
 
     @RequestMapping(value = "/postNotice", method = RequestMethod.POST)
-    public String postNotice(@ModelAttribute("postNotice") NoticeAPI noticeAPI) {
+    public String postNotice(@ModelAttribute("postNotice") NoticeAPI noticeAPI, HttpSession session) {
+        noticeAPI.setOwner(logService.getUserByUsername((String)session.getAttribute("loggedUserName")));
+        System.out.println(noticeAPI);
         if(noticeService.postNotice(noticeAPI))
-            return "successPostNotice";
-        else return "errorPostNotice";
+            return "index";
+        else return "login";
     }
 
     @RequestMapping(value = "/postNotice", method = RequestMethod.GET)
-    public String getPostNoticeForm(HttpSession session) {
+    public String getPostNoticeForm(@ModelAttribute("postNotice") NoticeAPI noticeAPI,HttpSession session) {
         if(session.getAttribute("loggedUserName")!=null)
         return "postNotice";
         else return "login";
