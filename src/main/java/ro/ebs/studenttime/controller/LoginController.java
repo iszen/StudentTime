@@ -41,5 +41,9 @@ public class LoginController {
         else return "errorLogin";
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String getLoginForm() {
+        return "login";
+    }
 
 }

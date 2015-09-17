@@ -9,14 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-<form:form method="post" action="login" >
-    <label for="username">Username: </label>
-    <form:input size="20" path="username"/><br/>
-    <label for="password">Password: </label>
-    <form:password size="20" path="password"/><br/>
-    <input type="submit" value="Submit" />
-</form:form>
-
+You have to log in
 
 </body>
 </html>
