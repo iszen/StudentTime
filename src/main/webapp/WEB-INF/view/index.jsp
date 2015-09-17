@@ -77,7 +77,7 @@
 
             <a class="navbar-brand" href="#">Student Time</a>
         </div>
-        <% if(session.getAttribute("loggedUserName")==null){ %>
+        <% if (session.getAttribute("loggedUserName") == null) { %>
         <div id="navbar" class="navbar-collapse collapse">
             <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
                 <button type="submit" class="btn btn-success">Sign up</button>
@@ -92,7 +92,7 @@
                 <button type="submit" class="btn btn-success">Log in</button>
             </form:form>
         </div>
-        <% }else {%>
+        <% } else {%>
         <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
             <button type="submit" class="btn btn-success">Log out</button>
         </form:form>
@@ -143,7 +143,7 @@
         <p align="center">
             <c:forEach items="${jobList}" var="job">
 
-                <a href="#"><c:out value="${job.title}"/></a><br/>
+                <a href="http://localhost:8080/jobProfile"><c:out value="${job.title}"/></a><br/>
 
             </c:forEach>
         </p>

@@ -37,4 +37,8 @@ public class JobService {
         return jobRepo.findAll();
     }
 
+    public Job getJob(String title) {
+        return jobRepo.findByTitle(title);
+    }
+
 }

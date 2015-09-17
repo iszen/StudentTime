@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import ro.ebs.studenttime.api.JobAPI;
 import ro.ebs.studenttime.api.LoginAPI;
 import ro.ebs.studenttime.model.Job;
@@ -47,5 +48,14 @@ public class JobController {
         if (jobService.postJob(jobAPI))
             return "index";
         else return "postJob";
+    }
+
+    @RequestMapping(value = "/jobProfile")
+    public ModelAndView jobProfile(JobAPI jobAPI) {
+        ModelAndView m = new ModelAndView();
+        Job job = jobService.getJob(jobAPI.getTitle());
+        m.addObject("job", job);
+        m.addObject("jobProfile");
+        return m;
     }
 }
