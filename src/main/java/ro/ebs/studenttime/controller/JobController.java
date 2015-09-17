@@ -1,8 +1,11 @@
 package ro.ebs.studenttime.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +17,8 @@ import ro.ebs.studenttime.service.JobService;
 import ro.ebs.studenttime.service.LoginService;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,6 +29,8 @@ public class JobController {
 
     @Autowired
     private JobService jobService;
+    @Autowired
+    private LoginService loginService;
 
 
     @RequestMapping(value = "/")
@@ -44,7 +51,7 @@ public class JobController {
 
     @RequestMapping(value = "/postJob", method = RequestMethod.POST)
     public String postJob(@ModelAttribute("postJob") JobAPI jobAPI, HttpSession session) {
-        jobAPI.setOwner(new LoginService().getUserByUsername(session.getAttribute("loggedUserName").toString()));
+        jobAPI.setOwner(loginService.getUserByUsername(session.getAttribute("loggedUserName").toString()));
         if (jobService.postJob(jobAPI))
             return "index";
         else return "postJob";
@@ -57,5 +64,12 @@ public class JobController {
         m.addObject("job", job);
         m.addObject("jobProfile");
         return m;
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+        sdf.setLenient(true);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
     }
 }

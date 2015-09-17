@@ -93,10 +93,11 @@
     </div>
 
 </div>
+<form:form method="post" action="postJob" modelAttribute="postJob">
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form:form method="post" action="postJob" modelAttribute="postJob">
+
 
                 <div class="input-group">
                     <span class="input-group-addon" id="title">Title</span>
@@ -114,21 +115,21 @@
 
                 <div class="input-group">
                     <span class="input-group-addon" id="begin">Begin date</span>
-                    <form:input path="beginDate" type="text" class="form-control" placeholder="Begin date..."
+                    <form:input path="beginDate" type="date" class="form-control" placeholder="Begin date..."
                                 aria-describedby="basic-addon1"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="end">End date</span>
-                    <form:input path="endDate" type="text" class="form-control" placeholder="End date..."
+                    <form:input path="endDate" type="date" class="form-control" placeholder="End date..."
                                 aria-describedby="basic-addon1"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="nrPersons">Number of required persons</span>
-                    <form:input path="numberRequiredPersons" type="text" class="form-control"
+                    <form:input path="numberRequiredPersons" type="number" class="form-control"
                                 placeholder="How many people do you need?"
                                 aria-describedby="basic-addon1"/>
                 </div>
@@ -136,7 +137,7 @@
 
                 <div class="input-group">
                     <span class="input-group-addon" id="salary">Salary</span>
-                    <form:input path="salary" type="text" class="form-control" placeholder="How much pay do they get?"
+                    <form:input path="salary" type="number" class="form-control" placeholder="How much pay do they get?"
                                 aria-describedby="basic-addon1"/>
                 </div>
                 <br/>
@@ -150,12 +151,12 @@
                 <span class="input-group-btn">
                     <button class="btn btn-success pull-right" type="submit">Post</button>
                 </span>
-            </form:form>
+
 
 
         </div>
     </div>
 </div>
-
+</form:form>
 </body>
 </html>
