@@ -10,6 +10,8 @@ import ro.ebs.studenttime.api.LoginAPI;
 import ro.ebs.studenttime.api.SigninAPI;
 import ro.ebs.studenttime.service.SignInService;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by Dana on 9/14/2015.
  */
@@ -26,9 +28,10 @@ public class SignInController {
     }
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
-    public String signin(@ModelAttribute("signin") SigninAPI signinAPI) {
+    public String signin(@ModelAttribute("signin") SigninAPI signinAPI,HttpSession session) {
+        session.setAttribute("loggedUserName", signinAPI.getUsername());
         if (service.performSignIn(signinAPI))
-            return "successLogin";
+            return "index";
         else return "errorSignIn";
     }
 }

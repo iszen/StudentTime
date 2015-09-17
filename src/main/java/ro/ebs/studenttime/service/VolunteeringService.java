@@ -19,14 +19,15 @@ public class VolunteeringService {
 
     public boolean postVolunteering(VolunteeringAPI volAPI){
         Volunteering vol = new Volunteering();
+        vol.setOwner(volAPI.getOwner());
         vol.setTitle(volAPI.getTitle());
         vol.setDescription(volAPI.getDescription());
         vol.setLocation(volAPI.getLocation());
         vol.setBeginDate(volAPI.getBeginDate());
         vol.setEndDate(volAPI.getEndDate());
         vol.setNumberRequiredPersons(volAPI.getNumberRequiredPersons());
-        vol.setCertificate(volAPI.isCertificate());
-
+        vol.setActive(volAPI.isActive());
+        System.out.println(vol.getActive());
         if( volRepo.save(vol)!= null){
             return true;
         }

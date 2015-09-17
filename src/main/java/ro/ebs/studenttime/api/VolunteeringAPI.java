@@ -1,25 +1,37 @@
 package ro.ebs.studenttime.api;
 
+import ro.ebs.studenttime.model.User;
+
 import java.util.Date;
 
 /**
  * Created by Bella on 9/14/2015.
  */
 public class VolunteeringAPI {
+
+    private User owner;
     private String title;
     private String description;
     private String location;
     private Date beginDate;
     private Date endDate;
     private int numberRequiredPersons;
-    private boolean certificate;
+    private boolean active;
 
-    public boolean isCertificate() {
-        return certificate;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setCertificate(boolean certificate) {
-        this.certificate = certificate;
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public String getTitle() {

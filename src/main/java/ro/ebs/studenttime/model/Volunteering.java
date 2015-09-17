@@ -2,10 +2,7 @@ package ro.ebs.studenttime.model;
 
 import com.sun.istack.internal.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -30,15 +27,14 @@ public class Volunteering {
     private Date beginDate;
     @NotNull
     private Date endDate;
+    private boolean active;
 
-    private boolean certificate;
-
-    public boolean isCertificate() {
-        return certificate;
+    public boolean getActive() {
+        return active;
     }
 
-    public void setCertificate(boolean certificate) {
-        this.certificate = certificate;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     private int numberRequiredPersons;

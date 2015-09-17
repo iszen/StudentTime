@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
 <head>
   <!-- Latest compiled and minified CSS -->
@@ -80,64 +81,80 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <p class="container">
+
   <div align="center">
     <h1>Student Time</h1>
 
     <h3>This is a website meant to help students to enhance their working skills, financial stability and CV
       skills.</h3>
+
     <p>To post a volunteer work please fill out all fields.</p>
 
   </div>
 
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <form>
+<form:form method="post" action="postVolunteering" modelAttribute="postVolunteering">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+
 
         <div class="input-group">
           <span class="input-group-addon" id="title">Title</span>
-          <input type="text" class="form-control" placeholder="Voluntary title..." aria-describedby="basic-addon1">
+          <form:input path="title" type="text" class="form-control" placeholder="Volunteer work title..."
+                      aria-describedby="basic-addon1"/>
         </div>
         <br/>
+
         <div class="input-group">
           <span class="input-group-addon" id="location">Location</span>
-          <input type="text" class="form-control" placeholder="Location..." aria-describedby="basic-addon1">
+          <form:input path="location" type="text" class="form-control" placeholder="Location..."
+                      aria-describedby="basic-addon1"/>
         </div>
         <br/>
+
         <div class="input-group">
           <span class="input-group-addon" id="begin">Begin date</span>
-          <input type="text" class="form-control" placeholder="Begin date..." aria-describedby="basic-addon1">
+          <form:input path="beginDate" type="date" class="form-control" placeholder="Begin date..."
+                      aria-describedby="basic-addon1"/>
         </div>
         <br/>
+
         <div class="input-group">
           <span class="input-group-addon" id="end">End date</span>
-          <input type="text" class="form-control" placeholder="End date..." aria-describedby="basic-addon1">
+          <form:input path="endDate" type="date" class="form-control" placeholder="End date..."
+                      aria-describedby="basic-addon1"/>
         </div>
         <br/>
+
         <div class="input-group">
           <span class="input-group-addon" id="nrPersons">Number of required persons</span>
-          <input type="text" class="form-control" placeholder="How many people do you need?" aria-describedby="basic-addon1">
+          <form:input path="numberRequiredPersons" type="number" class="form-control"
+                      placeholder="How many people do you need?"
+                      aria-describedby="basic-addon1"/>
         </div>
         <br/>
+
         <div class="input-group">
-          <span class="input-group-addon" id="salary">Certificate</span>
-          <input type="text" class="form-control" placeholder="Do they get a certificate?" aria-describedby="basic-addon1">
+          Do they get a certificate?<form:checkbox path="active" />
         </div>
         <br/>
+
         <div class="input-group">
           <span class="input-group-addon" id="description">Description</span>
-          <input type="text" class="form-control" placeholder="Describe the voluntary..." aria-describedby="basic-addon1">
+          <form:input path="description" type="text" class="form-control" placeholder="Describe the work..."
+                      aria-describedby="basic-addon1"/>
         </div>
+        <br/>
+                <span class="input-group-btn">
+                    <button class="btn btn-success pull-right" type="submit">Post</button>
+                </span>
 
-      </form>
 
-      <span class="input-group-btn" >
-        <button class="btn btn-success pull-right" type="button">Post</button>
-      </span>
+
+      </div>
     </div>
   </div>
-</div>
-
+</form:form>
 </body>
 </html>

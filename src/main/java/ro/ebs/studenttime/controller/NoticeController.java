@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import ro.ebs.studenttime.api.LoginAPI;
 import ro.ebs.studenttime.api.NoticeAPI;
 import ro.ebs.studenttime.api.VolunteeringAPI;
 import ro.ebs.studenttime.service.LoginService;
@@ -34,7 +35,7 @@ public class NoticeController {
     }
 
     @RequestMapping(value = "/postNotice", method = RequestMethod.GET)
-    public String getPostNoticeForm(@ModelAttribute("postNotice") NoticeAPI noticeAPI,HttpSession session) {
+    public String getPostNoticeForm(@ModelAttribute("login") LoginAPI loginAPI,@ModelAttribute("postNotice") NoticeAPI noticeAPI,HttpSession session) {
         if(session.getAttribute("loggedUserName")!=null)
         return "postNotice";
         else return "login";
