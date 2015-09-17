@@ -7,5 +7,8 @@ import ro.ebs.studenttime.model.Job;
  * Created by Bella on 9/14/2015.
  */
 public interface JobRepository extends JpaRepository<Job, Integer> {
+
     Job findByTitle(String title);
+
+    Job findById(int id);
 }

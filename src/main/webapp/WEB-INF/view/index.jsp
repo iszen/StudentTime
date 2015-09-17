@@ -142,9 +142,7 @@
 
         <p align="center">
             <c:forEach items="${jobList}" var="job">
-
-                <a href="http://localhost:8080/jobProfile"><c:out value="${job.title}"/></a><br/>
-
+                <a href="http://localhost:8080/jobProfile?jobtitle=${job.title}"><c:out value="${job.title}"/></a><br/>
             </c:forEach>
         </p>
     </div>

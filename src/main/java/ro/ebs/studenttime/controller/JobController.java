@@ -5,10 +5,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ro.ebs.studenttime.api.JobAPI;
 import ro.ebs.studenttime.api.LoginAPI;
@@ -58,13 +55,15 @@ public class JobController {
     }
 
     @RequestMapping(value = "/jobProfile")
-    public ModelAndView jobProfile(JobAPI jobAPI) {
+    public ModelAndView jobProfile(@RequestParam("jobtitle") String title, JobAPI jobAPI) {
+        System.out.println(title);
         ModelAndView m = new ModelAndView();
-        Job job = jobService.getJob(jobAPI.getTitle());
+        Job job = jobService.returnJob(title);
         m.addObject("job", job);
         m.addObject("jobProfile");
         return m;
     }
+
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {

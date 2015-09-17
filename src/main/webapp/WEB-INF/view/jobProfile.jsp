@@ -42,7 +42,7 @@
 
             <A href="edit.html">Logout</A>
             <br>
-
+            <br/><br/>
             <%--<p class=" text-info">May 05,2014,03:00 pm </p>--%>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
@@ -50,7 +50,7 @@
 
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Sheena Kristin A.Eschor</h3>
+                    <h3 class="panel-title"><c:out value="${job.title}"/></h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -58,58 +58,42 @@
                                                                             src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png"
                                                                             class="img-circle img-responsive"></div>
 
-                        <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
-                          <dl>
-                            <dt>DEPARTMENT:</dt>
-                            <dd>Administrator</dd>
-                            <dt>HIRE DATE</dt>
-                            <dd>11/12/2013</dd>
-                            <dt>DATE OF BIRTH</dt>
-                               <dd>11/12/2013</dd>
-                            <dt>GENDER</dt>
-                            <dd>Male</dd>
-                          </dl>
-                        </div>-->
                         <div class=" col-md-9 col-lg-9 ">
                             <table class="table table-user-information">
+
                                 <tbody>
                                 <tr>
-                                    <td>Department:</td>
-                                    <td>Programming</td>
+                                    <td>Location:</td>
+                                    <td><c:out value="${job.location}"/></td>
                                 </tr>
                                 <tr>
-                                    <td>Hire date:</td>
-                                    <td>06/23/2013</td>
+                                    <td>Start Date:</td>
+                                    <td><c:out value="${job.beginDate}"/></td>
                                 </tr>
                                 <tr>
-                                    <td>Date of Birth</td>
-                                    <td>01/24/1988</td>
+                                    <td>End Date</td>
+                                    <td><c:out value="${job.endDate}"/></td>
                                 </tr>
 
                                 <tr>
                                 <tr>
-                                    <td>Gender</td>
-                                    <td>Male</td>
+                                    <td>Number of required persons:</td>
+                                    <td><c:out value="${job.numberRequiredPersons}"/></td>
                                 </tr>
                                 <tr>
-                                    <td>Home Address</td>
-                                    <td>Metro Manila,Philippines</td>
+                                    <td>Salary:</td>
+                                    <td><c:out value="${job.salary}"/></td>
                                 </tr>
                                 <tr>
-                                    <td>Email</td>
-                                    <td><a href="mailto:info@support.com">info@support.com</a></td>
-                                </tr>
-                                <td>Phone Number</td>
-                                <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-                                </td>
+                                    <td>Description</td>
+                                    <td><c:out value="${job.description}"/></td>
 
-                                </tr>
 
                                 </tbody>
                             </table>
 
-                            <a href="#" class="btn btn-primary">My Sales Performance</a>
-                            <a href="#" class="btn btn-primary">Team Sales Performance</a>
+                            <p align="right">
+                                <a href="#" class="btn btn-primary">Apply</a></p>
                         </div>
                     </div>
                 </div>

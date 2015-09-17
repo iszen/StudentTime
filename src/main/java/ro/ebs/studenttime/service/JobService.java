@@ -37,7 +37,11 @@ public class JobService {
         return jobRepo.findAll();
     }
 
-    public Job getJob(String title) {
+    public Job getJob(int id) {
+        return jobRepo.findById(id);
+    }
+
+    public Job returnJob(String title) {
         return jobRepo.findByTitle(title);
     }
 
