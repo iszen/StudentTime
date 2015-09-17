@@ -43,7 +43,7 @@ public class JobController {
     @RequestMapping(value = "/postJob", method = RequestMethod.POST)
     public String postJob(@ModelAttribute("postJob") JobAPI jobAPI) {
         if (jobService.postJob(jobAPI))
-            return "successPostJob";
-        else return "errorPostJob";
+            return "index";
+        else return "postJob";
     }
 }

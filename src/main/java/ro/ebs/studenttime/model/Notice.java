@@ -1,5 +1,7 @@
 package ro.ebs.studenttime.model;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,8 +17,9 @@ public class Notice {
     private int id;
 
     @ManyToOne
+    @NotNull
     private User owner;
-
+    @NotNull
     private String text;
 
     public String getText() {

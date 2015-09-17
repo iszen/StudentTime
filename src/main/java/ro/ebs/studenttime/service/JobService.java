@@ -18,6 +18,7 @@ public class JobService {
 
     public boolean postJob(JobAPI jobAPI) {
         Job job = new Job();
+        job.setOwner(jobAPI.getOwner());
         job.setTitle(jobAPI.getTitle());
         job.setDescription(jobAPI.getDescription());
         job.setLocation(jobAPI.getLocation());

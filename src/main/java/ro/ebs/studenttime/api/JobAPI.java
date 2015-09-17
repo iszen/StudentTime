@@ -1,11 +1,16 @@
 package ro.ebs.studenttime.api;
 
+import ro.ebs.studenttime.model.User;
+
 import java.util.Date;
 
 /**
  * Created by Bella on 9/14/2015.
  */
 public class JobAPI {
+    private User owner;
+
+
     private String title;
     private String description;
     private String location;
@@ -13,6 +18,14 @@ public class JobAPI {
     private Date endDate;
     private int numberRequiredPersons;
     private double salary;
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
 
     public double getSalary() {
         return salary;

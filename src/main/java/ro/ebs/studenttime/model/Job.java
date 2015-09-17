@@ -1,10 +1,13 @@
 package ro.ebs.studenttime.model;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import java.util.Date;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
 
 /**
  * Created by Bella on 9/14/2015.
@@ -16,20 +19,21 @@ public class Job{
     private int id;
 
     @ManyToOne
+    @NotNull
     private User owner;
-
+    @NotNull
     private String title;
-
+    @NotNull
     private String description;
-
+    @NotNull
     private String location;
-
+    @NotNull
     private Date beginDate;
-
+    @NotNull
     private Date endDate;
-
+    @Min(1)
     private int numberRequiredPersons;
-
+    @Min(5)
     private double salary;
 
     public double getSalary() {

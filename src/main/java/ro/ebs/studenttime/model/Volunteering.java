@@ -1,5 +1,7 @@
 package ro.ebs.studenttime.model;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,23 +12,26 @@ import java.util.Date;
  * Created by Bella on 9/14/2015.
  */
 @Entity
-public class Volunteering{
+public class Volunteering {
     @Id
     @GeneratedValue
     private int id;
 
     @ManyToOne
+    @NotNull
     private User owner;
-
+    @NotNull
     private String title;
-
+    @NotNull
     private String description;
-
+    @NotNull
     private String location;
-
+    @NotNull
     private Date beginDate;
-
+    @NotNull
     private Date endDate;
+
+    private boolean certificate;
 
     public boolean isCertificate() {
         return certificate;
@@ -101,5 +106,5 @@ public class Volunteering{
     public void setNumberRequiredPersons(int numberRequiredPersons) {
         this.numberRequiredPersons = numberRequiredPersons;
     }
-    private boolean certificate;
+
 }
