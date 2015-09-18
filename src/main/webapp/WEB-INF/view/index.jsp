@@ -93,16 +93,21 @@
             </form:form>
         </div>
         <% } else {%>
-        <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
-            <button type="submit" class="btn btn-success">Log out</button>
-        </form:form>
+        <div class="navbar-form navbar-right">
+            <button type="button" class="btn btn-success " onclick="javascript:logout()">Log out</button>
+        </div>
         <a class="navbar-brand navbar-right" href="#">Welcome <%= session.getAttribute("loggedUserName")%>!</a>
         <%}%>
 
         <!--/.navbar-collapse -->
     </div>
 </nav>
-
+<script>
+    function logout() {
+        <% session.invalidate();%>
+        window.location.href = "index";
+    }
+</script>
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <p class="container">
