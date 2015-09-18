@@ -25,7 +25,8 @@ public class LoginController {
 
     @Autowired
     private LoginService service;
-
+    @Autowired
+    private JobService jobService;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String returnHome(@ModelAttribute("login") LoginAPI loginAPI) {
@@ -33,9 +34,10 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute("login") LoginAPI loginAPI, HttpSession session) {
+    public String login(@ModelAttribute("login") LoginAPI loginAPI, HttpSession session, Model model) {
         if (service.performLogin(loginAPI)) {
             session.setAttribute("loggedUserName", loginAPI.getUsername());
+            showJobs(model);
             return "index";
         } else return "errorLogin";
     }
@@ -45,4 +47,9 @@ public class LoginController {
         return "login";
     }
 
+    public void showJobs(Model model) {
+        List<Job> jobList;
+        jobList = jobService.getJobs();
+        model.addAttribute("jobList", jobList);
+    }
 }

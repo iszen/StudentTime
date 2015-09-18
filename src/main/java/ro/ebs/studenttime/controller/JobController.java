@@ -33,9 +33,10 @@ public class JobController {
     @RequestMapping(value = "/")
     public String homePage(Model model) {
         model.addAttribute("login", new LoginAPI());
-        List<Job> jobList;
-        jobList = jobService.getJobs();
-        model.addAttribute("jobList", jobList);
+//        List<Job> jobList;
+//        jobList = jobService.getJobs();
+//        model.addAttribute("jobList", jobList);
+        showJobs(model);
         return "index";
     }
 
@@ -70,5 +71,11 @@ public class JobController {
         SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
         sdf.setLenient(true);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
+    }
+
+    public void showJobs(Model model) {
+        List<Job> jobList;
+        jobList = jobService.getJobs();
+        model.addAttribute("jobList", jobList);
     }
 }
