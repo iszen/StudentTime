@@ -137,46 +137,53 @@
                 <!-- /input-group -->
             </div>
             <!-- /.col-lg-6 -->
-        </div>
-        <br/><br/>
-        <br/><br/>
-        <c:forEach items="${jobList}" var="job">
+            <br/><br/>
+            <br/><br/>
+            <c:forEach items="${jobList}" var="job">
 
-            <div class="col-sm-3 col-md-4">
-                <div class="thumbnail">
-                    <img src=".." alt="..">
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <div class="thumbnail">
+                        <img src="http://www.apkdad.com/wp-content/uploads/2014/09/Family-Guy-The-Quest-for-Stuff-Icon.png"
+                             alt=".."
+                             height="100" width="100">
 
-                    <div class="caption">
-                        <h3><c:out value="${job.title}"/><br/></h3>
-                        <br>
+                        <div class="caption">
+                            <h3><c:out value="${job.title}"/><br/></h3>
+                            <br>
 
-                        <p><c:out value="Owner: ${job.owner.username}"/></p>
+                            <p><c:out value="Owner: ${job.owner.username}"/></p>
 
-                        <p><a href="#" class="btn btn-primary" role="submit">Apply</a> <a
-                                href="http://localhost:8080/jobProfile?jobtitle=${job.title}" class="btn btn-success"
-                                role="submit">Read More</a>
+                            <p><a href="#" class="btn btn-primary" role="submit">Apply</a> <a
+                                    href="http://localhost:8080/jobProfile?jobtitle=${job.title}"
+                                    class="btn btn-success"
+                                    role="submit">Read More</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </c:forEach>
+            </c:forEach>
+        </div>
     </div>
+    <br/><br/>
+
     <div id="menu1" class="tab-pane fade">
         <h3>Volunteering</h3>
 
         <p>Some content in menu 1.</p>
     </div>
+    <br/><br/>
+
     <div id="menu2" class="tab-pane fade">
         <h3>Notice</h3>
 
         <p>Some content in menu 2.</p>
     </div>
+    <br/><br/>
 </div>
+<br/>
 
 <div>
     <br>
     <hr>
-
-
     <footer>
         <p>&copy; StudentTime 2015</p>
     </footer>
