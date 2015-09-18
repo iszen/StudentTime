@@ -54,16 +54,16 @@ public class JobController {
         else return "postJob";
     }
 
-    @RequestMapping(value = "/jobProfile")
-    public ModelAndView jobProfile(@RequestParam("jobtitle") String title, JobAPI jobAPI) {
+    @RequestMapping(value = "/jobProfile", method = RequestMethod.GET)
+    public ModelAndView jobProfile(@RequestParam("jobtitle") String title, JobAPI jobAPI, @ModelAttribute("login") LoginAPI loginAPI) {
         System.out.println(title);
         ModelAndView m = new ModelAndView();
         Job job = jobService.returnJob(title);
         m.addObject("job", job);
         m.addObject("jobProfile");
+
         return m;
     }
-
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
