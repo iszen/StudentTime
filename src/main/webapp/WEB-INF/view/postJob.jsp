@@ -94,36 +94,36 @@
 
 </div>
 <form:form method="post" action="postJob" modelAttribute="postJob">
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
 
 
                 <div class="input-group">
                     <span class="input-group-addon" id="title">Title</span>
                     <form:input path="title" type="text" class="form-control" placeholder="Job title..."
-                                aria-describedby="basic-addon1"/>
+                                aria-describedby="basic-addon1" required="required"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="location">Location</span>
                     <form:input path="location" type="text" class="form-control" placeholder="Location..."
-                                aria-describedby="basic-addon1"/>
+                                aria-describedby="basic-addon1" required="required"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="begin">Begin date</span>
                     <form:input path="beginDate" type="date" class="form-control" placeholder="Begin date..."
-                                aria-describedby="basic-addon1"/>
+                                aria-describedby="basic-addon1" required="required"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="end">End date</span>
                     <form:input path="endDate" type="date" class="form-control" placeholder="End date..."
-                                aria-describedby="basic-addon1"/>
+                                aria-describedby="basic-addon1" required="required"/>
                 </div>
                 <br/>
 
@@ -131,21 +131,21 @@
                     <span class="input-group-addon" id="nrPersons">Number of required persons</span>
                     <form:input path="numberRequiredPersons" type="number" class="form-control"
                                 placeholder="How many people do you need?"
-                                aria-describedby="basic-addon1"/>
+                                aria-describedby="basic-addon1" required="required"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="salary">Salary</span>
                     <form:input path="salary" type="number" class="form-control" placeholder="How much pay do they get?"
-                                aria-describedby="basic-addon1"/>
+                                aria-describedby="basic-addon1" required="required"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="description">Description</span>
                     <form:input path="description" type="text" class="form-control" placeholder="Describe the job..."
-                                aria-describedby="basic-addon1"/>
+                                aria-describedby="basic-addon1" required="required"/>
                 </div>
                 <br/>
                 <span class="input-group-btn">
@@ -153,10 +153,9 @@
                 </span>
 
 
-
+            </div>
         </div>
     </div>
-</div>
 </form:form>
 </body>
 </html>

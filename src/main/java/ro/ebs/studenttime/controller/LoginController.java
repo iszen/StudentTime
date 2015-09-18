@@ -28,8 +28,8 @@ public class LoginController {
 
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String returnHome() {
-       return "index";
+    public String returnHome(@ModelAttribute("login") LoginAPI loginAPI) {
+        return "index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -37,8 +37,7 @@ public class LoginController {
         if (service.performLogin(loginAPI)) {
             session.setAttribute("loggedUserName", loginAPI.getUsername());
             return "index";
-        }
-        else return "errorLogin";
+        } else return "errorLogin";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)

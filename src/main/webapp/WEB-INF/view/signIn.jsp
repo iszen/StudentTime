@@ -93,60 +93,63 @@
     </div>
 
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form>
-                <form:form class="form-horizontal" role="form" method="post" action="signin" modelAttribute="signin">
+<form:form method="post" action="signin" modelAttribute="signin">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                    <%--<form>--%>
+
                 <div class="input-group">
                     <span class="input-group-addon" id="title">Firstname</span>
-                    <input type="text" class="form-control" placeholder="Your firstname" aria-describedby="basic-addon1"
-                           required>
+                    <form:input path="firstname" type="text" class="form-control" placeholder="Your firstname"
+                                aria-describedby="basic-addon1"
+                                requried="required"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="location">Lastname</span>
-                    <input type="text" class="form-control" placeholder="Your lastname" aria-describedby="basic-addon1">
+                    <form:input path="lastname" type="text" class="form-control" placeholder="Your lastname"
+                                aria-describedby="basic-addon1" required="required"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="begin">Username</span>
-                    <input type="text" class="form-control"
-                           placeholder="Choose your username to appear when you're logged in"
-                           aria-describedby="basic-addon1" required>
+                    <form:input path="username" type="text" class="form-control"
+                                placeholder="Choose your username to appear when you're logged in"
+                                aria-describedby="basic-addon1" required="required"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="end">Password</span>
-                    <input type="password" class="form-control" placeholder="Choose a password"
-                           aria-describedby="basic-addon1" required>
+                    <form:password path="password" class="form-control" placeholder="Choose a password"
+                                   aria-describedby="basic-addon1" required="required"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="nrPersons">Workplace/University</span>
-                    <input type="text" class="form-control" placeholder="Where do you work/study?"
-                           aria-describedby="basic-addon1" required>
+                    <form:input path="workplace" type="text" class="form-control" placeholder="Where do you work/study?"
+                                aria-describedby="basic-addon1" required="required"/>
                 </div>
                 <br/>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="description">Email</span>
-                    <input type="email" class="form-control" placeholder="Enter a valid email"
-                           aria-describedby="basic-addon1" required>
+                    <form:input path="email" type="email" class="form-control" placeholder="Enter a valid email"
+                                aria-describedby="basic-addon1" required="required"/>
                 </div>
 
-            </form>
+                    <%--//  </form>--%>
 
       <span class="input-group-btn">
         <button type="submit" class="btn btn-success pull-right">Submit</button>
       </span>
+            </div>
         </div>
     </div>
-</div>
 </form:form>
 </body>
 </html>
