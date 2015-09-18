@@ -78,6 +78,7 @@
 <br>
 <div class="container">
     <div class="row">
+        <div class="col-md-6 col-md-offset-3">
         <form:form class="form-horizontal" role="form" method="post" action="login" modelAttribute="login">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="username">Username:</label>
@@ -95,15 +96,18 @@
                                    required="required"/>
                 </div>
             </div>
-            <div class="col-sm-offset-1 col-sm-0">
-        <button type="submit" class="btn btn-success pull-centre">Log in</button>
+            <div class="col-sm-pull-5">
+                <button type="submit" class="btn btn-success">Log in</button>
             </div>
         </form:form>
-        <form:form class="form-horizontal" role="form" method="get" action="signin" modelAttribute="signin">
-        <div class="col-sm-offset-1 col-sm-0" align="centre">
-                <button type="submit" class="btn btn-success">Sign up</button>
+        <form:form class="form-inline" role="form" method="get" action="signin" modelAttribute="signin">
+            <div class="col-sm-pull-6">
+
+            <button type="submit" class="btn btn-danger">Sign up</button>
             </div>
         </form:form>
+            </div>
+
     </div>
 </div>
 
