@@ -76,16 +76,12 @@
             <a class="navbar-brand" href="index">Student Time</a>
         </div>
         <div class="navbar-form navbar-right">
-            <button type="button" class="btn btn-success " onclick="javascript:logout()">Log out</button>
-        </div>
+            <form:form method="post"  action="logout">
+                <button type="submit" class="btn btn-success">Log out</button>
+            </form:form>        </div>
     </div>
 </nav>
-<script>
-    function logout() {
-        <% session.invalidate();%>
-        window.location.href = "index";
-    }
-</script>
+
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <p class="container">

@@ -29,8 +29,14 @@ public class LoginController {
     private JobService jobService;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String returnHome(@ModelAttribute("login") LoginAPI loginAPI, Model model) {
+     public String returnHome(@ModelAttribute("login") LoginAPI loginAPI, Model model) {
         showJobs(model);
+        return "index";
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public String logout(@ModelAttribute("login") LoginAPI loginAPI,HttpSession session) {
+        session.invalidate();
         return "index";
     }
 
