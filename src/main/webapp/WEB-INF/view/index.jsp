@@ -142,34 +142,40 @@
         <br/><br/>
         <c:forEach items="${jobList}" var="job">
 
-        <div class="col-sm-3 col-md-4">
-            <div class="thumbnail">
-                <img src=".." alt="..">
+            <div class="col-sm-3 col-md-4">
+                <div class="thumbnail">
+                    <img src=".." alt="..">
 
-                <div class="caption">
-                    <h3><c:out value="${job.title}"/><br/></h3>
-                    <br>
-                    <p><c:out value="Owner: ${job.owner.username}"/></p>
-                    <p><a href="#" class="btn btn-primary" role="submit">Apply</a> <a href="http://localhost:8080/jobProfile?jobtitle=${job.title}" class="btn btn-success"
-                                                                                      role="submit">Read More</a>
+                    <div class="caption">
+                        <h3><c:out value="${job.title}"/><br/></h3>
+                        <br>
+
+                        <p><c:out value="Owner: ${job.owner.username}"/></p>
+
+                        <p><a href="#" class="btn btn-primary" role="submit">Apply</a> <a
+                                href="http://localhost:8080/jobProfile?jobtitle=${job.title}" class="btn btn-success"
+                                role="submit">Read More</a>
+                    </div>
                 </div>
             </div>
-        </div>
         </c:forEach>
-
-        <div id="menu1" class="tab-pane fade">
-            <h3>Volunteering</h3>
-
-            <p>Some content in menu 1.</p>
-        </div>
-        <div id="menu2" class="tab-pane fade">
-            <h3>Notice</h3>
-
-            <p>Some content in menu 2.</p>
-        </div>
     </div>
+    <div id="menu1" class="tab-pane fade">
+        <h3>Volunteering</h3>
 
+        <p>Some content in menu 1.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+        <h3>Notice</h3>
+
+        <p>Some content in menu 2.</p>
+    </div>
+</div>
+
+<div>
+    <br>
     <hr>
+
 
     <footer>
         <p>&copy; StudentTime 2015</p>
