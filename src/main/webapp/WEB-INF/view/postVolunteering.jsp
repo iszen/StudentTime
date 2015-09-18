@@ -73,7 +73,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Student Time</a>
+      <a class="navbar-brand" href="index">Student Time</a>
     </div>
   </div>
 </nav>
