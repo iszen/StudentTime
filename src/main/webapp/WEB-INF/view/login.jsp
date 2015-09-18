@@ -70,46 +70,63 @@
 
     <div align="center">
 
-        <br>
+        <br/>
         <h4>You have to be logged in to post on this website!</h4>
 
     </div>
 </div>
-<br>
+<br/>
+<form:form class="form-horizontal" role="form" method="post" action="login" modelAttribute="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="username">Username:</label>
+
+                    <div class="col-sm-5">
+                        <form:input type="text" size="20" class="form-control" id="username" placeholder="Username"
+                                    path="username"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="username">Password:</label>
+
+                    <div class="col-sm-5">
+                        <form:password size="20" class="form-control" id="password" placeholder="Password"
+                                       path="password"
+                                       required="required"/>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <button type="submit" class="btn btn-success pull-right">Log in</button>
+                </div>
+                <br/>
+                <br/>
+                <div align="center" class="col-sm-7">
+                    <p>Dont' have an account?</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form:form>
+
+
+
+<form:form class="form-inline" role="form" method="get" action="signin" modelAttribute="signin">
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-        <form:form class="form-horizontal" role="form" method="post" action="login" modelAttribute="login">
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="username">Username:</label>
+            <div class="col-sm-7">
 
-                <div class="col-sm-5">
-                    <form:input type="text" size="20" class="form-control" id="username" placeholder="Username"
-                                path="username"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="username">Password:</label>
-
-                <div class="col-sm-5">
-                    <form:password size="20" class="form-control" id="password" placeholder="Password" path="password"
-                                   required="required"/>
-                </div>
-            </div>
-            <div class="col-sm-pull-5">
-                <button type="submit" class="btn btn-success">Log in</button>
-            </div>
-        </form:form>
-        <form:form class="form-inline" role="form" method="get" action="signin" modelAttribute="signin">
-            <div class="col-sm-pull-6">
-
-            <button type="submit" class="btn btn-danger">Sign up</button>
-            </div>
-        </form:form>
-            </div>
-
+        <button type="submit" class="btn btn-primary btn-block">Sign up</button>
     </div>
-</div>
+            </div>
+        </div>
+    </div>
+</form:form>
+
 
 </body>
 </html>
