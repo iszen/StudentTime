@@ -1,13 +1,11 @@
 package ro.ebs.studenttime.model;
 
 import com.sun.istack.internal.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import java.util.Date;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
+import java.sql.Date;
 
 /**
  * Created by Bella on 9/14/2015.
@@ -28,8 +26,10 @@ public class Job{
     @NotNull
     private String location;
     @NotNull
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private Date beginDate;
     @NotNull
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private Date endDate;
     @Min(1)
     private int numberRequiredPersons;

@@ -2,7 +2,7 @@ package ro.ebs.studenttime.api;
 
 import ro.ebs.studenttime.model.User;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by Bella on 9/14/2015.

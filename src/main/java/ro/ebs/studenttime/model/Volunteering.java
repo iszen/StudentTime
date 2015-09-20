@@ -1,9 +1,10 @@
 package ro.ebs.studenttime.model;
 
 import com.sun.istack.internal.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by Bella on 9/14/2015.
@@ -24,8 +25,10 @@ public class Volunteering {
     @NotNull
     private String location;
     @NotNull
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private Date beginDate;
     @NotNull
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private Date endDate;
     private boolean active;
 
