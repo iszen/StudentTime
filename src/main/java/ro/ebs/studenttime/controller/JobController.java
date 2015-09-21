@@ -19,6 +19,7 @@ import ro.ebs.studenttime.service.VolunteeringService;
 
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
@@ -38,8 +39,8 @@ public class JobController {
     private NoticeService noticeService;
 
 
-    @RequestMapping(value = "/", method=RequestMethod.GET)
-    public String homePage(@ModelAttribute("login") LoginAPI loginAPI,Model model) {
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String homePage(@ModelAttribute("login") LoginAPI loginAPI, Model model) {
         model.addAttribute("login", new LoginAPI());
         showJobs(model);
         showNotices(model);
@@ -63,13 +64,15 @@ public class JobController {
     }
 
     @RequestMapping(value = "/jobProfile", method = RequestMethod.GET)
-    public ModelAndView jobProfile(@RequestParam("jobtitle") String title, JobAPI jobAPI, @ModelAttribute("login") LoginAPI loginAPI) {
+    public ModelAndView jobProfile(@RequestParam("jobtitle") String title, JobAPI jobAPI, @ModelAttribute("login") LoginAPI loginAPI, Model model) {
         System.out.println(title);
         ModelAndView m = new ModelAndView();
         Job job = jobService.returnJob(title);
         m.addObject("job", job);
         m.addObject("jobProfile");
-
+        String attribute = "image"+job.getId().toString();
+        String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(jobService.getJob(job.getId()).getImage()));
+        model.addAttribute(attribute,encodedImage);
         return m;
     }
 
@@ -83,12 +86,19 @@ public class JobController {
     public void showJobs(Model model) {
         List<Job> jobList;
         jobList = jobService.getJobs();
+        for (Job job : jobList) {
+            if (job.getImage() != null) {
+                String attribute = "image"+job.getId().toString();
+                String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(jobService.getJob(job.getId()).getImage()));
+                model.addAttribute(attribute, encodedImage);
+            }
+        }
         model.addAttribute("jobList", jobList);
     }
 
 
-    public void showVolunteers(Model model){
-        List<Volunteering> volunteerList= volService.getVolunteers();
+    public void showVolunteers(Model model) {
+        List<Volunteering> volunteerList = volService.getVolunteers();
         model.addAttribute("volunteerList", volunteerList);
     }
 

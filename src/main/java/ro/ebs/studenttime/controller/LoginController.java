@@ -65,6 +65,13 @@ public class LoginController {
     public void showJobs(Model model) {
         List<Job> jobList;
         jobList = jobService.getJobs();
+        for (Job job : jobList) {
+            if (job.getImage() != null) {
+                String attribute = "image"+job.getId().toString();
+                String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(jobService.getJob(job.getId()).getImage()));
+                model.addAttribute(attribute, encodedImage);
+            }
+        }
         model.addAttribute("jobList", jobList);
     }
 

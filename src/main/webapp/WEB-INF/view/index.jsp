@@ -142,10 +142,10 @@
             <br/><br/>
             <br/><br/>
             <c:forEach items="${jobList}" var="job">
-
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                     <div class="thumbnail">
-                        <img src="http://www.apkdad.com/wp-content/uploads/2014/09/Family-Guy-The-Quest-for-Stuff-Icon.png"
+                        <c:set var="imgName" value="image${job.id}" />
+                        <img src="data:image/jpeg;base64,${requestScope[imgName]}"
                              alt=".."
                              height="90" width="90">
 

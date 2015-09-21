@@ -1,7 +1,10 @@
 package ro.ebs.studenttime.model;
 
 import com.sun.istack.internal.NotNull;
+import org.apache.commons.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import ro.ebs.studenttime.dao.JobRepository;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -35,6 +38,17 @@ public class Job{
     private int numberRequiredPersons;
     @Min(5)
     private double salary;
+
+    @Lob
+    private byte[] image;
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     public double getSalary() {
         return salary;

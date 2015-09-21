@@ -89,7 +89,7 @@
             <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
                 <button type="submit" class="btn btn-success">Sign up</button>
             </form:form>
-            <form:form class="navbar-form navbar-right" method="post" action="login" modelAttribute="login">
+            <form:form class="navbar-form navbar-right" method="post" action="/" modelAttribute="login">
                 <div class="form-group">
                     <form:input type="text" placeholder="Username" class="form-control" path="username"/>
                 </div>
@@ -141,9 +141,13 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-3 col-lg-3 " align="center"><img alt="User Pic"
-                                                                            src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png"
-                                                                            class="img-circle img-responsive"></div>
+
+                        <div class="col-md-3 col-lg-3 " align="center">
+                            <c:set var="imageName" value="image${job.id}" />
+                            <img alt="User Pic"
+                                 src="data:image/jpeg;base64,${requestScope[imageName]}"
+                                 height="90" width="90"
+                                 class="img-circle img-responsive"></div>
 
                         <div class=" col-md-9 col-lg-9 ">
                             <table class="table table-user-information">

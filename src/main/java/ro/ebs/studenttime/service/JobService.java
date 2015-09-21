@@ -1,11 +1,14 @@
 package ro.ebs.studenttime.service;
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.ebs.studenttime.api.JobAPI;
 import ro.ebs.studenttime.dao.JobRepository;
 import ro.ebs.studenttime.model.Job;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.List;
 
 /**
@@ -26,6 +29,21 @@ public class JobService {
         job.setEndDate(jobAPI.getEndDate());
         job.setNumberRequiredPersons(jobAPI.getNumberRequiredPersons());
         job.setSalary(jobAPI.getSalary());
+
+        File file = new File(new String(jobAPI.getImage()));
+
+        byte[] bFile = new byte[(int) file.length()];
+
+        try {
+
+            FileInputStream fileInputStream = new FileInputStream(file);
+            fileInputStream.read(bFile);
+            fileInputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        job.setImage(bFile);
 
         if (jobRepo.save(job) != null) {
             return true;

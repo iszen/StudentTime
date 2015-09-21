@@ -18,6 +18,15 @@ public class JobAPI {
     private Date endDate;
     private int numberRequiredPersons;
     private double salary;
+    private byte[] image;
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     public User getOwner() {
         return owner;
