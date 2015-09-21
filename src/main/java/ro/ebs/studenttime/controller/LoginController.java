@@ -68,7 +68,7 @@ public class LoginController {
         for (Job job : jobList) {
             if (job.getImage() != null) {
                 String attribute = "image"+job.getId().toString();
-                String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(jobService.getJob(job.getId()).getImage()));
+                String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(job.getImage()));
                 model.addAttribute(attribute, encodedImage);
             }
         }
@@ -80,7 +80,7 @@ public class LoginController {
         for (Volunteering vol : volunteerList) {
             if (vol.getImage() != null) {
                 String attribute = "image"+vol.getId().toString();
-                String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(jobService.getJob(vol.getId()).getImage()));
+                String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(vol.getImage()));
                 model.addAttribute(attribute, encodedImage);
             }
         }
