@@ -82,7 +82,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#">Student Time</a>
+            <a class="navbar-brand" href="/">Student Time</a>
         </div>
         <% if (session.getAttribute("loggedUserName") == null) { %>
         <div id="navbar" class="navbar-collapse collapse">

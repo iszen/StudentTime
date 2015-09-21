@@ -73,10 +73,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index">Student Time</a>
+            <a class="navbar-brand" href="/">Student Time</a>
         </div>
         <div class="navbar-form navbar-right">
-            <form:form method="post"  action="logout">
+            <form:form method="post" modelAttribute="logout" action="/">
                 <button type="submit" class="btn btn-success">Log out</button>
             </form:form>        </div>
     </div>
@@ -100,21 +100,31 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form:form method="post" action="postNotice" modelAttribute="postNotice">
+            <form:form method="post" action="/postNotice" modelAttribute="postNotice">
                 <div class="form-group">
+                    <div class="form-group>
+                    <label for="title" ><b>Title:</b></label>
+                    <form:input path="title" class="form-control" placeholder="Notice title..."
+                                aria-describedby="basic-addon1" required="required" id="title" minlength="3"/>
+                </div>
+                <br/>
                     <label for="notice">Your notice:</label>
 
                     <form:textarea path="text" class="form-control" rows="5" id="notice"/>
 
                 </div>
                 <span class="input-group-btn" >
-                    <button class="btn btn-success pull-right" type="submit">Post</button>
+                    <button class="btn btn-success pull-right" type="submit" onclick="javascript:successPost()">Post</button>
                 </span>
             </form:form>
 
         </div>
     </div>
 </div>
-
+<script>
+    function successPost(){
+        alert("Congratulations you just posted a notice! Now... go Home");
+    }
+</script>
 </body>
 </html>

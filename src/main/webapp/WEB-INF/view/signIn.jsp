@@ -73,7 +73,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index">Student Time</a>
+            <a class="navbar-brand" href="/">Student Time</a>
         </div>
     </div>
 </nav>
@@ -93,7 +93,7 @@
     </div>
 
 </div>
-<form:form method="post" action="signin" modelAttribute="signin">
+<form:form method="post" action="/" modelAttribute="signin">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">

@@ -8,8 +8,16 @@ import ro.ebs.studenttime.model.User;
 public class NoticeAPI {
     private String text;
 
-
+    private String title;
     private User owner;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getText() {
         return text;

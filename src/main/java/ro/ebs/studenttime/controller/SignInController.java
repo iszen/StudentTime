@@ -27,11 +27,11 @@ public class SignInController {
         return "signIn";
     }
 
-    @RequestMapping(value = "/signin", method = RequestMethod.POST)
-    public String signin(@ModelAttribute("signin") SigninAPI signinAPI,HttpSession session) {
-        session.setAttribute("loggedUserName", signinAPI.getUsername());
-        if (service.performSignIn(signinAPI))
-            return "index";
-        else return "errorSignIn";
-    }
+//    @RequestMapping(value = "/signin", method = RequestMethod.POST)
+//    public String signin(@ModelAttribute("signin") SigninAPI signinAPI,HttpSession session) {
+//        session.setAttribute("loggedUserName", signinAPI.getUsername());
+//        if (service.performSignIn(signinAPI))
+//            return "index";
+//        else return "errorSignIn";
+//    }
 }

@@ -33,8 +33,8 @@ public class VolunteeringController {
     public String postVolunteering(@ModelAttribute("postVolunteering") VolunteeringAPI volAPI, HttpSession session) {
         volAPI.setOwner(loginService.getUserByUsername(session.getAttribute("loggedUserName").toString()));
         if(volunteeringService.postVolunteering(volAPI))
-            return "index";
-        else return "login";
+            return "postVolunteering";
+        else return "error";
     }
 
     @RequestMapping(value = "/postVolunteering", method = RequestMethod.GET)

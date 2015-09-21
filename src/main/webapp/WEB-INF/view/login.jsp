@@ -60,7 +60,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index">Student Time</a>
+            <a class="navbar-brand" href="/">Student Time</a>
         </div>
     </div>
 </nav>
@@ -76,7 +76,7 @@
     </div>
 </div>
 <br/>
-<form:form class="form-horizontal" role="form" method="post" action="login" modelAttribute="login">
+<form:form class="form-horizontal" role="form" method="post" action="/" modelAttribute="login">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">

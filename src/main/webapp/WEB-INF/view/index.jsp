@@ -83,7 +83,7 @@
             <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
                 <button type="submit" class="btn btn-success">Sign up</button>
             </form:form>
-            <form:form class="navbar-form navbar-right" method="post" action="login" modelAttribute="login">
+            <form:form class="navbar-form navbar-right" method="post" action="/" modelAttribute="login">
                 <div class="form-group">
                     <form:input type="text" placeholder="Username" class="form-control" path="username"/>
                 </div>
@@ -95,7 +95,7 @@
         </div>
         <% } else {%>
         <div class="navbar-form navbar-right">
-            <form:form method="post" action="logout">
+            <form:form method="post" modelAttribute="logout" action="/">
                 <button type="submit" class="btn btn-success">Log out</button>
             </form:form>
         </div>

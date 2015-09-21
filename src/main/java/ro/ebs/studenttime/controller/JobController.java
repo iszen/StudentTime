@@ -30,12 +30,9 @@ public class JobController {
     private LoginService loginService;
 
 
-    @RequestMapping(value = "/")
-    public String homePage(Model model) {
+    @RequestMapping(value = "/", method=RequestMethod.GET)
+    public String homePage(@ModelAttribute("login") LoginAPI loginAPI,Model model) {
         model.addAttribute("login", new LoginAPI());
-//        List<Job> jobList;
-//        jobList = jobService.getJobs();
-//        model.addAttribute("jobList", jobList);
         showJobs(model);
         return "index";
     }
@@ -51,8 +48,8 @@ public class JobController {
     public String postJob(@ModelAttribute("postJob") JobAPI jobAPI, HttpSession session) {
         jobAPI.setOwner(loginService.getUserByUsername(session.getAttribute("loggedUserName").toString()));
         if (jobService.postJob(jobAPI))
-            return "index";
-        else return "postJob";
+            return "postJob";
+        else return "error";
     }
 
     @RequestMapping(value = "/jobProfile", method = RequestMethod.GET)

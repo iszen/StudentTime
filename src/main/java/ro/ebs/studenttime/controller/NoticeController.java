@@ -30,8 +30,8 @@ public class NoticeController {
         noticeAPI.setOwner(logService.getUserByUsername((String)session.getAttribute("loggedUserName")));
         System.out.println(noticeAPI);
         if(noticeService.postNotice(noticeAPI))
-            return "index";
-        else return "login";
+            return "postNotice";
+        else return "error";
     }
 
     @RequestMapping(value = "/postNotice", method = RequestMethod.GET)

@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <meta charset="utf-8">
@@ -73,13 +74,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index">Student Time</a>
+            <a class="navbar-brand" href="/">Student Time</a>
         </div>
 
         <div class="navbar-form navbar-right">
-            <form:form method="post"  action="logout">
+            <form:form method="post" modelAttribute="logout" action="/">
                 <button type="submit" class="btn btn-success">Log out</button>
-            </form:form>        </div>
+            </form:form></div>
 
     </div>
 </nav>
@@ -99,69 +100,95 @@
     </div>
 
 </div>
-<form:form method="post" action="postJob" modelAttribute="postJob">
+<form:form method="post" action="postJob" modelAttribute="postJob" id="postJobForm">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-
-
-                <div class="input-group">
-                    <span class="input-group-addon" id="title">Title</span>
-                    <form:input path="title" type="text" class="form-control" placeholder="Job title..."
-                                aria-describedby="basic-addon1" required="required"/>
+                <div class="form-group>
+                    <label for="title" ><b>Title:</b></label>
+                    <form:input path="title" class="form-control" placeholder="Job title..."
+                                aria-describedby="basic-addon1" required="required" id="title" minlength="3"/>
                 </div>
                 <br/>
 
-                <div class="input-group">
-                    <span class="input-group-addon" id="location">Location</span>
-                    <form:input path="location" type="text" class="form-control" placeholder="Location..."
-                                aria-describedby="basic-addon1" required="required"/>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <form:input path="location" class="form-control" placeholder="Location..."
+                                aria-describedby="basic-addon1" required="required" id="location" minlength="3"/>
                 </div>
                 <br/>
 
-                <div class="input-group">
-                    <span class="input-group-addon" id="begin">Begin date</span>
-                    <form:input path="beginDate" type="date" class="form-control" placeholder="Begin date..."
-                                aria-describedby="basic-addon1" required="required"/>
+                <div class="form-group">
+                    <label for="begin">Begin date:</label>
+
+                    <form:input path="beginDate" type="date" class="form-control"
+                                aria-describedby="basic-addon1" required="required" id="begin"/>
                 </div>
                 <br/>
 
-                <div class="input-group">
-                    <span class="input-group-addon" id="end">End date</span>
+                <div class="form-group">
+                    <label for="end">End date:</label>
                     <form:input path="endDate" type="date" class="form-control" placeholder="End date..."
-                                aria-describedby="basic-addon1" required="required"/>
+                                aria-describedby="basic-addon1" required="required" id="end"/>
                 </div>
                 <br/>
 
-                <div class="input-group">
-                    <span class="input-group-addon" id="nrPersons">Number of required persons</span>
+                <div class="form-group">
+                    <label for="nrPersons">Number of required persons:</label>
                     <form:input path="numberRequiredPersons" type="number" class="form-control"
                                 placeholder="How many people do you need?"
-                                aria-describedby="basic-addon1" required="required"/>
+                                aria-describedby="basic-addon1" required="required" id="nrPersons"/>
                 </div>
                 <br/>
 
-                <div class="input-group">
-                    <span class="input-group-addon" id="salary">Salary</span>
+                <div class="form-group">
+                    <label for="salary">Salary:</label>
                     <form:input path="salary" type="number" class="form-control" placeholder="How much pay do they get?"
-                                aria-describedby="basic-addon1" required="required"/>
+                                aria-describedby="basic-addon1" required="required" id="salary"/>
                 </div>
                 <br/>
 
-                <div class="input-group">
-                    <span class="input-group-addon" id="description">Description</span>
-                    <form:input path="description" type="text" class="form-control" placeholder="Describe the job..."
-                                aria-describedby="basic-addon1" required="required"/>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <form:textarea path="description" class="form-control" placeholder="Describe the job..." rows="5"
+                                   aria-describedby="basic-addon1" required="required" id="description" minlength="20"/>
                 </div>
                 <br/>
-                <span class="input-group-btn">
-                    <button class="btn btn-success pull-right" type="submit">Post</button>
+                <span class="form-group-btn">
+                    <button class="btn btn-success pull-right" type="submit" onclick="javascript:successPost()">Post</button>
                 </span>
-
+                <br/>
 
             </div>
         </div>
     </div>
 </form:form>
+<script>
+    function successPost(){
+        alert("Congratulations you just posted a job! Now... go Home");
+    }
+    $("#postJobForm").validate();
+    $("#nrPersons").change(function(){
+        if ($(this).val() <1 )
+        {
+            alert("You need at least 1 person. Don't you?");
+            $(this).val(1);
+        };
+    });
+    $("#salary").change(function(){
+        if ($(this).val() <1 )
+        {
+            alert("Nobody works for free...");
+            $(this).val(1);
+        };
+    });
+    $("#beginDate").change(function(){
+        if (dates.compare(new Date($(this).value),new Date())<0 )
+        {
+            alert("You can not post a job in the past!");
+            $(this).val(new Date());
+        };
+    });
+</script>
 </body>
 </html>

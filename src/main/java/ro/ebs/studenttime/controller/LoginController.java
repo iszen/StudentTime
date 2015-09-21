@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import ro.ebs.studenttime.api.LoginAPI;
+import ro.ebs.studenttime.api.*;
 import ro.ebs.studenttime.model.Job;
 import ro.ebs.studenttime.model.User;
-import ro.ebs.studenttime.service.JobService;
-import ro.ebs.studenttime.service.LoginService;
+import ro.ebs.studenttime.service.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -27,26 +26,31 @@ public class LoginController {
     private LoginService service;
     @Autowired
     private JobService jobService;
+    @Autowired
+    private LoginService loginService;
+    @Autowired
+    private VolunteeringService volService;
+    @Autowired
+    private NoticeService noticeService;
+    @Autowired
+    private SignInService signInService;
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-     public String returnHome(@ModelAttribute("login") LoginAPI loginAPI, Model model) {
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String returnHome(@ModelAttribute("signin") SigninAPI signinAPI, @ModelAttribute("login") LoginAPI login, @ModelAttribute("logout") String logout, HttpSession session, Model model) {
+        if(signinAPI.getFirstname()!=null) {
+            session.setAttribute("loggedUserName", signinAPI.getUsername());
+            if (!signInService.performSignIn(signinAPI)) {
+                return "errorSignin";
+            }
+        }else if (login.getPassword() != null && login.getUsername() != null) {
+            if (service.performLogin(login)) {
+                session.setAttribute("loggedUserName", login.getUsername());
+            } else return "errorLogin";
+        }else{
+            session.invalidate();
+        }
         showJobs(model);
         return "index";
-    }
-
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
-    public String logout(@ModelAttribute("login") LoginAPI loginAPI,HttpSession session) {
-        session.invalidate();
-        return "index";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute("login") LoginAPI loginAPI, HttpSession session, Model model) {
-        if (service.performLogin(loginAPI)) {
-            session.setAttribute("loggedUserName", loginAPI.getUsername());
-            showJobs(model);
-            return "index";
-        } else return "errorLogin";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
