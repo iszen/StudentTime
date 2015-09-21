@@ -153,6 +153,10 @@
                 <form:textarea path="description" class="form-control" placeholder="Describe the job..." rows="5"
                                aria-describedby="basic-addon1" required="required" id="description" minlength="20"/>
             </div>
+            <div class="form-group">
+                <label class="control-label">Upload an image:</label>
+                <form:input path="image" id="input-1" type="file" class="file form-control"  aria-describedby="basic-addon1" />
+            </div>
             <br/>
                 <span class="form-group-btn">
                     <button class="btn btn-success pull-right" type="submit" onclick="javascript:successPost()">Post</button>

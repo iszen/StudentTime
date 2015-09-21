@@ -99,6 +99,14 @@ public class JobController {
 
     public void showVolunteers(Model model) {
         List<Volunteering> volunteerList = volService.getVolunteers();
+        for (Volunteering vol : volunteerList) {
+            if (vol.getImage() != null) {
+                String attribute = "image"+vol.getId().toString();
+                String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(volService.getVolunteering(vol.getId()).getImage()));
+                System.out.println(encodedImage);
+                model.addAttribute(attribute, encodedImage);
+            }
+        }
         model.addAttribute("volunteerList", volunteerList);
     }
 

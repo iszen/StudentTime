@@ -17,7 +17,15 @@ public class VolunteeringAPI {
     private Date endDate;
     private int numberRequiredPersons;
     private boolean active;
+    private byte[] image;
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
     public User getOwner() {
         return owner;
     }

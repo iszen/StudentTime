@@ -31,6 +31,16 @@ public class Volunteering {
     @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private Date endDate;
     private boolean active;
+    @Lob
+    private byte[] image;
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     public boolean getActive() {
         return active;

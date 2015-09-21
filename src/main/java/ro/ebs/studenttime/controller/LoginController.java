@@ -77,6 +77,13 @@ public class LoginController {
 
     public void showVolunteers(Model model){
         List<Volunteering> volunteerList= volService.getVolunteers();
+        for (Volunteering vol : volunteerList) {
+            if (vol.getImage() != null) {
+                String attribute = "image"+vol.getId().toString();
+                String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(jobService.getJob(vol.getId()).getImage()));
+                model.addAttribute(attribute, encodedImage);
+            }
+        }
         model.addAttribute("volunteerList", volunteerList);
     }
 

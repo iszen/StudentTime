@@ -9,6 +9,8 @@ import ro.ebs.studenttime.dao.VolunteeringRepository;
 import ro.ebs.studenttime.model.Job;
 import ro.ebs.studenttime.model.Volunteering;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.List;
 
 /**
@@ -30,6 +32,21 @@ public class VolunteeringService {
         vol.setNumberRequiredPersons(volAPI.getNumberRequiredPersons());
         vol.setActive(volAPI.isActive());
         System.out.println(vol.getActive());
+
+        File file = new File(new String(volAPI.getImage()));
+
+        byte[] bFile = new byte[(int) file.length()];
+
+        try {
+
+            FileInputStream fileInputStream = new FileInputStream(file);
+            fileInputStream.read(bFile);
+            fileInputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        vol.setImage(bFile);
         if( volRepo.save(vol)!= null){
             return true;
         }
@@ -37,4 +54,6 @@ public class VolunteeringService {
     }
 
     public List<Volunteering> getVolunteers(){ return volRepo.findAll();}
+
+    public Volunteering getVolunteering(int id){ return volRepo.findById(id);}
 }

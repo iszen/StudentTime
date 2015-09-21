@@ -180,7 +180,8 @@
 
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                     <div class="thumbnail">
-                        <img src="http://media.giphy.com/media/IUu7swWWXfeyk/giphy.gif"
+                        <c:set var="imgName" value="image${volunteer.id}" />
+                        <img src="data:image/jpeg;base64,${requestScope[imgName]}"
                              alt=".."
                              height="100" width="100">
 
