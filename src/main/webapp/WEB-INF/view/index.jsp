@@ -5,6 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page isELIgnored="false" session="true" %>
 
 <html lang="en">
@@ -94,7 +95,7 @@
         </div>
         <% } else {%>
         <div class="navbar-form navbar-right">
-            <form:form method="post"  action="logout">
+            <form:form method="post" action="logout">
                 <button type="submit" class="btn btn-success">Log out</button>
             </form:form>
         </div>
@@ -129,10 +130,9 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="input-group">
-
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Find a job</button>
-      </span>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Find a job</button>
+                    </span>
                     <input type="text" class="form-control" placeholder="Search for a job...">
 
                 </div>
@@ -147,12 +147,16 @@
                     <div class="thumbnail">
                         <img src="http://www.apkdad.com/wp-content/uploads/2014/09/Family-Guy-The-Quest-for-Stuff-Icon.png"
                              alt=".."
-                             height="100" width="100">
+                             height="90" width="90">
 
                         <div class="caption">
-                            <h3><c:out value="${job.title}"/><br/></h3>
-                            <br>
-
+                            <c:set var="jobTitle" value="${job.title}"/>
+                            <c:choose>
+                                <c:when test="${job.title.length() < '31'}"><h4><c:out value="${job.title}"/></h4><br/></c:when>
+                                <c:when test="${job.title.length() > '59'}">
+                                    <h4>${fn:substring(jobTitle, 0, 59)}...</h4></c:when>
+                                <c:otherwise><h4><c:out value="${job.title}"/></h4></c:otherwise>
+                            </c:choose>
                             <p><c:out value="Owner: ${job.owner.username}"/></p>
 
                             <p><a href="#" class="btn btn-primary" role="submit">Apply</a> <a
