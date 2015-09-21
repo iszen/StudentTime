@@ -9,6 +9,8 @@ import ro.ebs.studenttime.dao.VolunteeringRepository;
 import ro.ebs.studenttime.model.Job;
 import ro.ebs.studenttime.model.Volunteering;
 
+import java.util.List;
+
 /**
  * Created by Bella on 9/14/2015.
  */
@@ -33,4 +35,6 @@ public class VolunteeringService {
         }
         return false;
     }
+
+    public List<Volunteering> getVolunteers(){ return volRepo.findAll();}
 }

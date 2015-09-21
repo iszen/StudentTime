@@ -6,6 +6,8 @@ import ro.ebs.studenttime.api.NoticeAPI;
 import ro.ebs.studenttime.dao.NoticeRepository;
 import ro.ebs.studenttime.model.Notice;
 
+import java.util.List;
+
 /**
  * Created by Bella on 9/14/2015.
  */
@@ -23,4 +25,6 @@ public class NoticeService {
         }
         return false;
     }
+
+    public List<Notice> getNotices(){ return noticeRepo.findAll();}
 }

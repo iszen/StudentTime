@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ro.ebs.studenttime.api.*;
 import ro.ebs.studenttime.model.Job;
+import ro.ebs.studenttime.model.Notice;
 import ro.ebs.studenttime.model.User;
+import ro.ebs.studenttime.model.Volunteering;
 import ro.ebs.studenttime.service.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,6 +52,8 @@ public class LoginController {
             session.invalidate();
         }
         showJobs(model);
+        showNotices(model);
+        showVolunteers(model);
         return "index";
     }
 
@@ -62,5 +66,15 @@ public class LoginController {
         List<Job> jobList;
         jobList = jobService.getJobs();
         model.addAttribute("jobList", jobList);
+    }
+
+    public void showVolunteers(Model model){
+        List<Volunteering> volunteerList= volService.getVolunteers();
+        model.addAttribute("volunteerList", volunteerList);
+    }
+
+    public void showNotices(Model model) {
+        List<Notice> noticeList = noticeService.getNotices();
+        model.addAttribute("noticeList", noticeList);
     }
 }

@@ -125,7 +125,7 @@
 
 <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-        <h3>Jobs</h3>
+        <br/><br/>
 
         <div class="row">
             <div class="col-lg-6">
@@ -169,19 +169,74 @@
             </c:forEach>
         </div>
     </div>
-    <br/><br/>
+
 
     <div id="menu1" class="tab-pane fade">
-        <h3>Volunteering</h3>
+        <br/><br/>
 
-        <p>Some content in menu 1.</p>
+        <div class="row">
+
+            <c:forEach items="${volunteerList}" var="volunteer">
+
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <div class="thumbnail">
+                        <img src="http://media.giphy.com/media/IUu7swWWXfeyk/giphy.gif"
+                             alt=".."
+                             height="100" width="100">
+
+                        <div class="caption">
+                            <c:set var="volunteerTitle" value="${volunteer.title}"/>
+                            <c:choose>
+                                <c:when test="${volunteer.title.length() < '31'}"><h4><c:out
+                                        value="${volunteer.title}"/></h4><br/></c:when>
+                                <c:when test="${volunteer.title.length() > '59'}">
+                                    <h4>${fn:substring(volunteerTitle, 0, 59)}...</h4></c:when>
+                                <c:otherwise><h4><c:out value="${volunteer.title}"/></h4></c:otherwise>
+                            </c:choose>
+                            <p><c:out value="Owner: ${volunteer.owner.username}"/></p>
+
+                            <p><a href="#" class="btn btn-primary" role="submit">Apply</a> <a
+                                    href="http://localhost:8080/jobProfile?jobtitle=${job.title}"
+                                    class="btn btn-success"
+                                    role="submit">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
     </div>
-    <br/><br/>
 
     <div id="menu2" class="tab-pane fade">
-        <h3>Notice</h3>
+        <br/><br/>
 
-        <p>Some content in menu 2.</p>
+        <div class="row">
+
+            <c:forEach items="${noticeList}" var="notice">
+
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                            <p><b><c:out value="Owner: ${notice.owner.username}"/></b></p>
+
+                            <c:set var="noticeText" value="${notice.text}"/>
+                            <c:choose>
+                                <c:when test="${notice.text.length() < '31'}">
+                                    <p> <c:out value="${notice.text}"/><br/><br/></p>
+                                </c:when>
+                                <c:when test="${notice.text.length() > '59'}">
+                                    <p>${fn:substring(noticeText, 0, 59)}...</p>
+                                </c:when>
+                                <c:otherwise><p><c:out value="${notice.text}"/></p></c:otherwise>
+                            </c:choose>
+
+                            <p> <a href="http://localhost:8080/jobProfile?jobtitle=${job.title}"
+                                   class="btn btn-info btn-sm" role="submit">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
     </div>
     <br/><br/>
 </div>

@@ -10,8 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 import ro.ebs.studenttime.api.JobAPI;
 import ro.ebs.studenttime.api.LoginAPI;
 import ro.ebs.studenttime.model.Job;
+import ro.ebs.studenttime.model.Notice;
+import ro.ebs.studenttime.model.Volunteering;
 import ro.ebs.studenttime.service.JobService;
 import ro.ebs.studenttime.service.LoginService;
+import ro.ebs.studenttime.service.NoticeService;
+import ro.ebs.studenttime.service.VolunteeringService;
 
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
@@ -28,12 +32,18 @@ public class JobController {
     private JobService jobService;
     @Autowired
     private LoginService loginService;
+    @Autowired
+    private VolunteeringService volService;
+    @Autowired
+    private NoticeService noticeService;
 
 
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String homePage(@ModelAttribute("login") LoginAPI loginAPI,Model model) {
         model.addAttribute("login", new LoginAPI());
         showJobs(model);
+        showNotices(model);
+        showVolunteers(model);
         return "index";
     }
 
@@ -74,5 +84,16 @@ public class JobController {
         List<Job> jobList;
         jobList = jobService.getJobs();
         model.addAttribute("jobList", jobList);
+    }
+
+
+    public void showVolunteers(Model model){
+        List<Volunteering> volunteerList= volService.getVolunteers();
+        model.addAttribute("volunteerList", volunteerList);
+    }
+
+    public void showNotices(Model model) {
+        List<Notice> noticeList = noticeService.getNotices();
+        model.addAttribute("noticeList", noticeList);
     }
 }
