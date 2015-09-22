@@ -27,4 +27,8 @@ public class NoticeService {
     }
 
     public List<Notice> getNotices(){ return noticeRepo.findAll();}
+
+    public Notice returnNotice(String text) {
+        return noticeRepo.findByText(text);
+    }
 }

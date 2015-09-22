@@ -6,9 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import ro.ebs.studenttime.api.LoginAPI;
 import ro.ebs.studenttime.api.NoticeAPI;
 import ro.ebs.studenttime.api.VolunteeringAPI;
+import ro.ebs.studenttime.model.Notice;
 import ro.ebs.studenttime.service.LoginService;
 import ro.ebs.studenttime.service.NoticeService;
 import ro.ebs.studenttime.service.VolunteeringService;
@@ -39,5 +42,15 @@ public class NoticeController {
         if(session.getAttribute("loggedUserName")!=null)
         return "postNotice";
         else return "login";
+    }
+
+    @RequestMapping(value = "/noticeProfile", method = RequestMethod.GET)
+    public ModelAndView jobProfile(@RequestParam("noticeText") String text, NoticeAPI noticeAPI, @ModelAttribute("login") LoginAPI loginAPI) {
+        ModelAndView m = new ModelAndView();
+        Notice notice = noticeService.returnNotice(text);
+        m.addObject("notice", notice);
+        m.addObject("noticeProfile");
+
+        return m;
     }
 }

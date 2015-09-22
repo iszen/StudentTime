@@ -4,13 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import ro.ebs.studenttime.api.JobAPI;
 import ro.ebs.studenttime.api.LoginAPI;
 import ro.ebs.studenttime.api.VolunteeringAPI;
+import ro.ebs.studenttime.model.Volunteering;
 import ro.ebs.studenttime.service.JobService;
 import ro.ebs.studenttime.service.LoginService;
 import ro.ebs.studenttime.service.VolunteeringService;
@@ -42,6 +41,16 @@ public class VolunteeringController {
         if(session.getAttribute("loggedUserName")!=null)
         return "postVolunteering";
         else return "login";
+    }
+
+    @RequestMapping(value = "/volunteerProfile", method = RequestMethod.GET)
+    public ModelAndView jobProfile(@RequestParam("volunteerTitle") String title, VolunteeringAPI volunteeringAPI, @ModelAttribute("login") LoginAPI loginAPI) {
+        ModelAndView m = new ModelAndView();
+        Volunteering vol = volunteeringService.returnVolunteer(title);
+        m.addObject("volunteer", vol);
+        m.addObject("volunteerProfile");
+
+        return m;
     }
 
     @InitBinder

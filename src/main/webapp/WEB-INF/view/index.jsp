@@ -197,7 +197,7 @@
                             <p><c:out value="Owner: ${volunteer.owner.username}"/></p>
 
                             <p><a href="#" class="btn btn-primary" role="submit">Apply</a> <a
-                                    href="http://localhost:8080/jobProfile?jobtitle=${job.title}"
+                                    href="http://localhost:8080/volunteerProfile?volunteerTitle=${volunteer.title}"
                                     class="btn btn-success"
                                     role="submit">Read More</a>
                         </div>
@@ -231,7 +231,7 @@
                                 <c:otherwise><p><c:out value="${notice.text}"/></p></c:otherwise>
                             </c:choose>
 
-                            <p> <a href="http://localhost:8080/jobProfile?jobtitle=${job.title}"
+                            <p> <a href="http://localhost:8080/noticeProfile?noticeText=${notice.text}"
                                    class="btn btn-info btn-sm" role="submit">Read More</a>
                         </div>
                     </div>

@@ -56,4 +56,8 @@ public class VolunteeringService {
     public List<Volunteering> getVolunteers(){ return volRepo.findAll();}
 
     public Volunteering getVolunteering(int id){ return volRepo.findById(id);}
+
+    public Volunteering returnVolunteer(String title) {
+        return volRepo.findByTitle(title);
+    }
 }

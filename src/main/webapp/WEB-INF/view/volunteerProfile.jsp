@@ -89,7 +89,7 @@
             <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
                 <button type="submit" class="btn btn-success">Sign up</button>
             </form:form>
-            <form:form class="navbar-form navbar-right" method="post" action="/" modelAttribute="login">
+            <form:form class="navbar-form navbar-right" method="post" action="login" modelAttribute="login">
                 <div class="form-group">
                     <form:input type="text" placeholder="Username" class="form-control" path="username"/>
                 </div>
@@ -101,9 +101,9 @@
         </div>
         <% } else {%>
         <div class="navbar-form navbar-right">
-            <form:form method="post"  action="logout">
+            <form:form method="post" action="logout">
                 <button type="submit" class="btn btn-success">Log out</button>
-            </form:form>        </div>
+            </form:form></div>
         <a class="navbar-brand navbar-right" href="#">Welcome <%= session.getAttribute("loggedUserName")%>!</a>
         <%}%>
 
@@ -124,31 +124,20 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-            <A href="edit.html">Edit Profile</A>
 
-            <A href="edit.html">Logout</A>
-            <br>
-            <br/><br/>
-            <%--<p class=" text-info">May 05,2014,03:00 pm </p>--%>
-        </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
 
 
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><c:out value="${job.title}"/></h3>
+                    <h3 class="panel-title"><c:out value="${volunteer.title}"/></h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
-
-                        <div class="col-md-3 col-lg-3 " align="center">
-                            <c:set var="imageName" value="image${job.id}" />
-                            <img alt="User Pic"
-                                 src="data:image/jpeg;base64,${requestScope[imageName]}"
-                                 height="90" width="90"
-                                 class="img-circle img-responsive">
-                            <h4><c:out value="${job.owner.username}"/></h4>
+                        <div class="col-md-3 col-lg-3 " align="center"><img alt="User Pic"
+                                                                            src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png"
+                                                                            class="img-circle img-responsive">
+                            <h4><c:out value="${volunteer.owner.username}"/></h4>
                         </div>
 
                         <div class=" col-md-9 col-lg-9 ">
@@ -157,29 +146,31 @@
                                 <tbody>
                                 <tr>
                                     <td>Location:</td>
-                                    <td><c:out value="${job.location}"/></td>
+                                    <td><c:out value="${volunteer.location}"/></td>
                                 </tr>
                                 <tr>
                                     <td>Start Date:</td>
-                                    <td><c:out value="${job.beginDate}"/></td>
+                                    <td><c:out value="${volunteer.beginDate}"/></td>
                                 </tr>
                                 <tr>
                                     <td>End Date</td>
-                                    <td><c:out value="${job.endDate}"/></td>
+                                    <td><c:out value="${volunteer.endDate}"/></td>
                                 </tr>
 
                                 <tr>
                                 <tr>
                                     <td>Number of required persons:</td>
-                                    <td><c:out value="${job.numberRequiredPersons}"/></td>
+                                    <td><c:out value="${volunteer.numberRequiredPersons}"/></td>
                                 </tr>
                                 <tr>
-                                    <td>Salary:</td>
-                                    <td><c:out value="${job.salary}"/></td>
+                                    <td>Certificate:</td>
+                                    <td>
+                                        <c:out value="${volunteer.active}"/>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Description</td>
-                                    <td><c:out value="${job.description}"/></td>
+                                    <td><c:out value="${volunteer.description}"/></td>
 
 
                                 </tbody>
