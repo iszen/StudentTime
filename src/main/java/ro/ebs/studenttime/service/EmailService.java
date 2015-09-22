@@ -10,6 +10,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import ro.ebs.studenttime.api.EmailAPI;
+import ro.ebs.studenttime.api.JobAPI;
 import ro.ebs.studenttime.conf.AppConfig;
 import ro.ebs.studenttime.conf.PersistenceContext;
 

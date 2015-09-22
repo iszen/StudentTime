@@ -4,7 +4,7 @@ package ro.ebs.studenttime.api;
  * Created by Ioana on 9/21/2015.
  */
 public class EmailAPI {
-    private String from;
+    private final String from = "studenttime2015@gmail.com";
     private String name;
     private String to;
     private String subject;
@@ -14,9 +14,6 @@ public class EmailAPI {
         return from;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
-    }
 
     public String getName() {
         return name;

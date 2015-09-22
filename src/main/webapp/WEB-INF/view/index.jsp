@@ -159,7 +159,8 @@
                             </c:choose>
                             <p><c:out value="Owner: ${job.owner.username}"/></p>
 
-                            <p><a href="/email" class="btn btn-primary" role="submit">Apply</a> <a
+                            <p><a href="/email?jobprofiletitle=${job.title}" class="btn btn-primary"
+                                  role="submit">Apply</a> <a
                                     href="http://localhost:8080/jobProfile?jobtitle=${job.title}"
                                     class="btn btn-success"
                                     role="submit">Read More</a>

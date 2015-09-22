@@ -79,16 +79,22 @@ public class JobController {
     }
 
     @RequestMapping(value = "/email", method = RequestMethod.GET)
-    public String getEmailForm(@ModelAttribute("login") LoginAPI loginAPI, @ModelAttribute("postJob") JobAPI jobAPI, @ModelAttribute("email") EmailAPI emailAPI, HttpSession session) {
-        if (session.getAttribute("loggedUserName") != null)
+    public String getEmailForm(@RequestParam("jobprofiletitle") String jobTitle, @ModelAttribute("login") LoginAPI loginAPI, @ModelAttribute("postJob") JobAPI jobAPI, @ModelAttribute("email") EmailAPI emailAPI, HttpSession session, Model model) {
+        if (session.getAttribute("loggedUserName") != null) {
+            Job job = jobService.returnJob(jobTitle);
+            model.addAttribute("job", job);
             return "email";
+        }
         return "login";
 
     }
 
     @RequestMapping(value = "/email", method = RequestMethod.POST)
-    public String sendEmail(@ModelAttribute("email") EmailAPI emailAPI, HttpSession session, @ModelAttribute LoginAPI loginAPI) throws MessagingException {
-        emailAPI.setName(loginAPI.getUsername());
+    public String sendEmail(@ModelAttribute("email") EmailAPI emailAPI, HttpSession session, @ModelAttribute JobAPI jobAPI) throws MessagingException {
+        jobAPI.setOwner(loginService.getUserByUsername(session.getAttribute("loggedUserName").toString()));
+        emailAPI.setName(jobAPI.getOwner().getUsername().toString());
+        emailAPI.setSubject("Studenttime Registration");
+        emailAPI.setTo(jobAPI.getOwner().getEmail().toString());
         if (emailService.sendEmail(emailAPI)) {
             System.out.println(emailAPI.toString());
             return "successSentEmail";
