@@ -70,9 +70,11 @@ public class JobController {
         Job job = jobService.returnJob(title);
         m.addObject("job", job);
         m.addObject("jobProfile");
-        String attribute = "image"+job.getId().toString();
-        String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(jobService.getJob(job.getId()).getImage()));
-        model.addAttribute(attribute,encodedImage);
+        if(job.getImage()!=null) {
+            String attribute = "image" + job.getId().toString();
+            String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(jobService.getJob(job.getId()).getImage()));
+            model.addAttribute(attribute, encodedImage);
+        }
         return m;
     }
 
