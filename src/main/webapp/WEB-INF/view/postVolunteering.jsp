@@ -95,7 +95,7 @@
         <h3>This is a website meant to help students to enhance their working skills, financial stability and CV
             skills.</h3>
 
-        <p>To post a job please fill out all fields.</p>
+        <p>To post a volunteer work please fill out all fields.</p>
 
     </div>
 
@@ -150,7 +150,7 @@
 
             <div class="form-group">
                 <label for="description">Description:</label>
-                <form:textarea path="description" class="form-control" placeholder="Describe the job..." rows="5"
+                <form:textarea path="description" class="form-control" placeholder="Describe the work..." rows="5"
                                aria-describedby="basic-addon1" required="required" id="description" minlength="20"/>
             </div>
             <div class="form-group">

@@ -128,17 +128,19 @@
         <br/><br/>
 
         <div class="row">
-            <div class="col-lg-6">
+            <form:form action="/" method="get" modelAttribute="search">
+            <div class="col-md-6 col-md-offset-3">
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Find a job</button>
+                        <button class="btn btn-default" type="submit">Find a job</button>
                     </span>
-                    <input type="text" class="form-control" placeholder="Search for a job...">
+                    <form:input path="searchJob" class="form-control" placeholder="Search for a job..."/>
 
                 </div>
                 <!-- /input-group -->
             </div>
             <!-- /.col-lg-6 -->
+             </form:form>
             <br/><br/>
             <br/><br/>
             <c:forEach items="${jobList}" var="job">
@@ -176,6 +178,21 @@
         <br/><br/>
 
         <div class="row">
+            <form:form action="/" method="get" modelAttribute="search">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Find a job</button>
+                    </span>
+                        <form:input path="searchVol" class="form-control" placeholder="Search for volunteer work..."/>
+
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 -->
+            </form:form>
+            <br/><br/>
+            <br/><br/>
 
             <c:forEach items="${volunteerList}" var="volunteer">
 
@@ -212,6 +229,21 @@
         <br/><br/>
 
         <div class="row">
+            <form:form action="/" method="get" modelAttribute="search">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Find a job</button>
+                    </span>
+                        <form:input path="searchNotice" class="form-control" placeholder="Search for a notice..."/>
+
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 -->
+            </form:form>
+            <br/><br/>
+            <br/><br/>
 
             <c:forEach items="${noticeList}" var="notice">
 

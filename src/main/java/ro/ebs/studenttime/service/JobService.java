@@ -9,6 +9,7 @@ import ro.ebs.studenttime.model.Job;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,6 +44,7 @@ public class JobService {
             e.printStackTrace();
 
         }
+        System.out.println("image to save "+bFile.toString());
         job.setImage(bFile);
 
         if (jobRepo.save(job) != null) {
@@ -53,6 +55,15 @@ public class JobService {
 
     public List<Job> getJobs() {
         return jobRepo.findAll();
+    }
+    public List<Job> getMatchingJobs(String searchstring) {
+        List<Job> allJobs = getJobs();
+        List<Job> matchingJobs = new ArrayList<>();
+        for(Job job : allJobs){
+            if(job.getTitle().toLowerCase().contains(searchstring.toLowerCase()))
+                matchingJobs.add(job);
+        }
+        return matchingJobs;
     }
 
     public Job getJob(int id) {

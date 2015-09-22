@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ro.ebs.studenttime.api.EmailAPI;
 import ro.ebs.studenttime.api.JobAPI;
 import ro.ebs.studenttime.api.LoginAPI;
+import ro.ebs.studenttime.api.SearchAPI;
 import ro.ebs.studenttime.model.Job;
 import ro.ebs.studenttime.model.Notice;
 import ro.ebs.studenttime.model.Volunteering;
@@ -40,11 +41,11 @@ public class JobController {
     private EmailService emailService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String homePage(@ModelAttribute("login") LoginAPI loginAPI, Model model) {
+    public String homePage(@ModelAttribute("login") LoginAPI loginAPI, Model model, @ModelAttribute("search") SearchAPI search) {
         model.addAttribute("login", new LoginAPI());
-        showJobs(model);
-        showNotices(model);
-        showVolunteers(model);
+        showJobs(model, search);
+        showNotices(model, search);
+        showVolunteers(model, search);
         return "index";
     }
 
@@ -110,9 +111,12 @@ public class JobController {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
     }
 
-    public void showJobs(Model model) {
+    public void showJobs(Model model, SearchAPI search) {
         List<Job> jobList;
-        jobList = jobService.getJobs();
+        if (search == null || search.getSearchJob() == null || search.getSearchJob().isEmpty())
+            jobList = jobService.getJobs();
+        else
+            jobList = jobService.getMatchingJobs(search.getSearchJob());
         for (Job job : jobList) {
             if (job.getImage() != null) {
                 String attribute = "image" + job.getId().toString();
@@ -124,8 +128,13 @@ public class JobController {
     }
 
 
-    public void showVolunteers(Model model) {
-        List<Volunteering> volunteerList = volService.getVolunteers();
+    public void showVolunteers(Model model, SearchAPI search) {
+        List<Volunteering> volunteerList;
+        if (search == null || search.getSearchVol() == null || search.getSearchVol().isEmpty())
+            volunteerList  = volService.getVolunteers();
+        else
+            volunteerList = volService.getMatchingVolunteers(search.getSearchVol());
+
         for (Volunteering vol : volunteerList) {
             if (vol.getImage() != null) {
                 String attribute = "image" + vol.getId().toString();
@@ -137,8 +146,12 @@ public class JobController {
         model.addAttribute("volunteerList", volunteerList);
     }
 
-    public void showNotices(Model model) {
-        List<Notice> noticeList = noticeService.getNotices();
+    public void showNotices(Model model, SearchAPI search) {
+        List<Notice> noticeList;
+        if (search == null || search.getSearchNotice() == null || search.getSearchNotice().isEmpty())
+            noticeList= noticeService.getNotices();
+        else
+            noticeList= noticeService.getMatchingNotices(search.getSearchNotice());
         model.addAttribute("noticeList", noticeList);
     }
 }

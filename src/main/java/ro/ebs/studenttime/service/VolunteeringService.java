@@ -11,6 +11,7 @@ import ro.ebs.studenttime.model.Volunteering;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class VolunteeringService {
     @Autowired
     VolunteeringRepository volRepo;
 
-    public boolean postVolunteering(VolunteeringAPI volAPI){
+    public boolean postVolunteering(VolunteeringAPI volAPI) {
         Volunteering vol = new Volunteering();
         vol.setOwner(volAPI.getOwner());
         vol.setTitle(volAPI.getTitle());
@@ -31,7 +32,6 @@ public class VolunteeringService {
         vol.setEndDate(volAPI.getEndDate());
         vol.setNumberRequiredPersons(volAPI.getNumberRequiredPersons());
         vol.setActive(volAPI.isActive());
-        System.out.println(vol.getActive());
 
         File file = new File(new String(volAPI.getImage()));
 
@@ -47,17 +47,32 @@ public class VolunteeringService {
 
         }
         vol.setImage(bFile);
-        if( volRepo.save(vol)!= null){
+        if (volRepo.save(vol) != null) {
             return true;
         }
         return false;
     }
 
-    public List<Volunteering> getVolunteers(){ return volRepo.findAll();}
+    public List<Volunteering> getVolunteers() {
+        return volRepo.findAll();
+    }
 
-    public Volunteering getVolunteering(int id){ return volRepo.findById(id);}
+    public Volunteering getVolunteering(int id) {
+        return volRepo.findById(id);
+    }
 
     public Volunteering returnVolunteer(String title) {
         return volRepo.findByTitle(title);
+    }
+
+    public List<Volunteering> getMatchingVolunteers(String search) {
+        List<Volunteering> allVolunteerings = getVolunteers();
+        List<Volunteering> matchingVolunteerings = new ArrayList<>();
+        for (Volunteering vol : allVolunteerings) {
+            if(vol.getTitle()!=null)
+            if (vol.getTitle().toLowerCase().contains(search.toLowerCase()))
+                matchingVolunteerings.add(vol);
+        }
+        return matchingVolunteerings;
     }
 }

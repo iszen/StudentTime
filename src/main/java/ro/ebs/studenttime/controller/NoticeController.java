@@ -31,7 +31,6 @@ public class NoticeController {
     @RequestMapping(value = "/postNotice", method = RequestMethod.POST)
     public String postNotice(@ModelAttribute("postNotice") NoticeAPI noticeAPI, HttpSession session) {
         noticeAPI.setOwner(logService.getUserByUsername((String)session.getAttribute("loggedUserName")));
-        System.out.println(noticeAPI);
         if(noticeService.postNotice(noticeAPI))
             return "postNotice";
         else return "error";

@@ -105,8 +105,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="form-group>
-                    <label for=" title
-                " ><b>Title:</b></label>
+                    <label for=" title" ><b>Title:</b></label>
                 <form:input path="title" class="form-control" placeholder="Job title..."
                             aria-describedby="basic-addon1" required="required" id="title" minlength="3"/>
             </div>
@@ -156,7 +155,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Upload an image:</label>
-                <form:input path="image" id="input-1" type="file" class="file form-control"  aria-describedby="basic-addon1" />
+                <form:input path="image" id="input-1" type="file" class="file" />
             </div>
             <br/>
                 <span class="form-group-btn">
