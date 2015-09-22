@@ -28,10 +28,7 @@ public class EmailService {
 //    }
 
     public boolean sendEmail(EmailAPI emailAPI) throws MessagingException {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-        ctx.refresh();
-        ctx.register(PersistenceContext.class);
-        javaMailSender = ctx.getBean(JavaMailSenderImpl.class);
+
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mailMsg = new MimeMessageHelper(mimeMessage);
         mailMsg.setFrom(emailAPI.getFrom());
