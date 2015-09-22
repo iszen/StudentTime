@@ -1,5 +1,9 @@
 package ro.ebs.studenttime.api;
 
+import org.springframework.core.io.FileSystemResource;
+
+import java.io.File;
+
 /**
  * Created by Ioana on 9/21/2015.
  */
@@ -9,6 +13,7 @@ public class EmailAPI {
     private String to;
     private String subject;
     private String text;
+    private File file;
 
     public String getFrom() {
         return from;
@@ -47,6 +52,14 @@ public class EmailAPI {
         this.text = text;
     }
 
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
     @Override
     public String toString() {
         return "EmailAPI{" +
@@ -55,6 +68,7 @@ public class EmailAPI {
                 ", to='" + to + '\'' +
                 ", subject='" + subject + '\'' +
                 ", text='" + text + '\'' +
+                ", file=" + file +
                 '}';
     }
 }

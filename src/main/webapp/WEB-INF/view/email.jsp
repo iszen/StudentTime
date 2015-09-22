@@ -114,36 +114,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <div class="form-group">
-                        <%--<label for="name"><b>Name:</b></label>--%>
-                        <%--<form:input path="name" class="form-control" placeholder="Your name..."--%>
-                        <%--aria-describedby="basic-addon1" required="required" id="name" minlength="3"/>--%>
-                    <c:out value="${job.owner}"></c:out>
-                </div>
-                <br/>
 
-                    <%--<div class="form-group">--%>
-                    <%--&lt;%&ndash;<label for="from">From:</label>&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;<form:input path="from" class="form-control" placeholder="The company's username"&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;aria-describedby="basic-addon1" required="required" id="from" minlength="3"/>&ndash;%&gt;--%>
-                    <%--<c:out value="${job.}"></c:out>--%>
-                    <%--</div>--%>
-                    <%--<br/>--%>
-
-                    <%--<div class="form-group">--%>
-                    <%--<label for="to">To:</label>--%>
-
-                    <%--<form:input path="to" type="text" class="form-control"--%>
-                    <%--aria-describedby="basic-addon1" required="required" id="to"/>--%>
-                    <%--</div>--%>
-                    <%--<br/>--%>
-
-                    <%--<div class="form-group">--%>
-                    <%--<label for="subject">Subject:</label>--%>
-                    <%--<form:input path="subject" type="text" class="form-control" placeholder="Subject..."--%>
-                    <%--aria-describedby="basic-addon1" required="required" id="subject"/>--%>
-                    <%--</div>--%>
-                    <%--<br/>--%>
 
                 <div class="form-group">
                     <label for="text">Text:</label>
@@ -153,7 +124,12 @@
                 </div>
                 <br/>
 
-
+                <div class="form-group">
+                    <label class="control-label">Upload your cv:</label>
+                    <form:input path="file" id="input-1" type="file" class="file form-control"
+                                aria-describedby="basic-addon1"/>
+                </div>
+                <br/>
                 <br/>
                 <span class="form-group-btn">
                     <%--<button class="btn btn-success pull-right" type="submit" onclick="javascript:success()">Send an email</button>--%>
