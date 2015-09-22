@@ -144,7 +144,7 @@
             <c:forEach items="${jobList}" var="job">
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                     <div class="thumbnail">
-                        <c:set var="imgName" value="image${job.id}" />
+                        <c:set var="imgName" value="image${job.id}"/>
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
                              alt=".."
                              height="90" width="90">
@@ -159,7 +159,7 @@
                             </c:choose>
                             <p><c:out value="Owner: ${job.owner.username}"/></p>
 
-                            <p><a href="#" class="btn btn-primary" role="submit">Apply</a> <a
+                            <p><a href="/email" class="btn btn-primary" role="submit">Apply</a> <a
                                     href="http://localhost:8080/jobProfile?jobtitle=${job.title}"
                                     class="btn btn-success"
                                     role="submit">Read More</a>
@@ -180,7 +180,7 @@
 
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                     <div class="thumbnail">
-                        <c:set var="imgName" value="image${volunteer.id}" />
+                        <c:set var="imgName" value="image${volunteer.id}"/>
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
                              alt=".."
                              height="100" width="100">
@@ -196,7 +196,7 @@
                             </c:choose>
                             <p><c:out value="Owner: ${volunteer.owner.username}"/></p>
 
-                            <p><a href="#" class="btn btn-primary" role="submit">Apply</a> <a
+                            <p><a href="/email" class="btn btn-primary" role="submit">Apply</a> <a
                                     href="http://localhost:8080/volunteerProfile?volunteerTitle=${volunteer.title}"
                                     class="btn btn-success"
                                     role="submit">Read More</a>
@@ -223,7 +223,7 @@
                             <c:set var="noticeText" value="${notice.text}"/>
                             <c:choose>
                                 <c:when test="${notice.text.length() < '31'}">
-                                    <p> <c:out value="${notice.text}"/><br/><br/></p>
+                                    <p><c:out value="${notice.text}"/><br/><br/></p>
                                 </c:when>
                                 <c:when test="${notice.text.length() > '59'}">
                                     <p>${fn:substring(noticeText, 0, 59)}...</p>
@@ -231,8 +231,8 @@
                                 <c:otherwise><p><c:out value="${notice.text}"/></p></c:otherwise>
                             </c:choose>
 
-                            <p> <a href="http://localhost:8080/noticeProfile?noticeText=${notice.text}"
-                                   class="btn btn-info btn-sm" role="submit">Read More</a>
+                            <p><a href="http://localhost:8080/noticeProfile?noticeText=${notice.text}"
+                                  class="btn btn-info btn-sm" role="submit">Read More</a>
                         </div>
                     </div>
                 </div>

@@ -7,16 +7,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import ro.ebs.studenttime.api.EmailAPI;
 import ro.ebs.studenttime.api.JobAPI;
 import ro.ebs.studenttime.api.LoginAPI;
 import ro.ebs.studenttime.model.Job;
 import ro.ebs.studenttime.model.Notice;
 import ro.ebs.studenttime.model.Volunteering;
-import ro.ebs.studenttime.service.JobService;
-import ro.ebs.studenttime.service.LoginService;
-import ro.ebs.studenttime.service.NoticeService;
-import ro.ebs.studenttime.service.VolunteeringService;
+import ro.ebs.studenttime.service.*;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
@@ -37,7 +36,8 @@ public class JobController {
     private VolunteeringService volService;
     @Autowired
     private NoticeService noticeService;
-
+    @Autowired
+    private EmailService emailService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String homePage(@ModelAttribute("login") LoginAPI loginAPI, Model model) {
@@ -70,12 +70,31 @@ public class JobController {
         Job job = jobService.returnJob(title);
         m.addObject("job", job);
         m.addObject("jobProfile");
-        if(job.getImage()!=null) {
+        if (job.getImage() != null) {
             String attribute = "image" + job.getId().toString();
             String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(jobService.getJob(job.getId()).getImage()));
             model.addAttribute(attribute, encodedImage);
         }
         return m;
+    }
+
+    @RequestMapping(value = "/email", method = RequestMethod.GET)
+    public String getEmailForm(@ModelAttribute("login") LoginAPI loginAPI, @ModelAttribute("postJob") JobAPI jobAPI, @ModelAttribute("email") EmailAPI emailAPI, HttpSession session) {
+        if (session.getAttribute("loggedUserName") != null)
+            return "email";
+        return "login";
+
+    }
+
+    @RequestMapping(value = "/email", method = RequestMethod.POST)
+    public String sendEmail(@ModelAttribute("email") EmailAPI emailAPI, HttpSession session, @ModelAttribute LoginAPI loginAPI) throws MessagingException {
+        emailAPI.setName(loginAPI.getUsername());
+        if (emailService.sendEmail(emailAPI)) {
+            System.out.println(emailAPI.toString());
+            return "successSentEmail";
+        }
+        return "errorSentEmail";
+
     }
 
     @InitBinder
@@ -90,7 +109,7 @@ public class JobController {
         jobList = jobService.getJobs();
         for (Job job : jobList) {
             if (job.getImage() != null) {
-                String attribute = "image"+job.getId().toString();
+                String attribute = "image" + job.getId().toString();
                 String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(jobService.getJob(job.getId()).getImage()));
                 model.addAttribute(attribute, encodedImage);
             }
@@ -103,7 +122,7 @@ public class JobController {
         List<Volunteering> volunteerList = volService.getVolunteers();
         for (Volunteering vol : volunteerList) {
             if (vol.getImage() != null) {
-                String attribute = "image"+vol.getId().toString();
+                String attribute = "image" + vol.getId().toString();
                 String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(volService.getVolunteering(vol.getId()).getImage()));
                 System.out.println(encodedImage);
                 model.addAttribute(attribute, encodedImage);
