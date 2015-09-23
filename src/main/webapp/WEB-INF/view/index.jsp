@@ -83,14 +83,25 @@
             <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
                 <button type="submit" class="btn btn-warning">Sign up</button>
             </form:form>
-            <form:form class="navbar-form navbar-right" method="post" action="/" modelAttribute="login">
+            <form:form class="navbar-form navbar-right" method="post" action="/" modelAttribute="login" onsubmit='return validateMyForm()'>
                 <div class="form-group">
-                    <form:input type="text" placeholder="Username" class="form-control" path="username"/>
+                    <form:input type="text" id="username" placeholder="Username" class="form-control" path="username"/>
                 </div>
                 <div class="form-group">
-                    <form:password placeholder="Password" class="form-control" path="password"/>
+                    <form:password  id="password" placeholder="Password" class="form-control" path="password"/>
                 </div>
                 <button type="submit" class="btn btn-warning">Log in</button>
+                <script type="text/javascript">
+                    function validateMyForm()
+                    {
+                        if (document.getElementById('username').value.length == 0 || document.getElementById('password').value.length == 0)
+                        {
+                            window.alert("Don't leave any fields empty!");
+                            return false;
+                        }
+                    }
+
+                </script>
             </form:form>
         </div>
         <% } else {%>
