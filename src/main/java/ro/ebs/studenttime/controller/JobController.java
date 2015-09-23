@@ -66,7 +66,6 @@ public class JobController {
 
     @RequestMapping(value = "/jobProfile", method = RequestMethod.GET)
     public ModelAndView jobProfile(@RequestParam("jobtitle") String title, JobAPI jobAPI, @ModelAttribute("login") LoginAPI loginAPI, Model model) {
-        System.out.println(title);
         ModelAndView m = new ModelAndView();
         Job job = jobService.returnJob(title);
         m.addObject("job", job);
@@ -139,7 +138,6 @@ public class JobController {
             if (vol.getImage() != null) {
                 String attribute = "image" + vol.getId().toString();
                 String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(volService.getVolunteering(vol.getId()).getImage()));
-                System.out.println(encodedImage);
                 model.addAttribute(attribute, encodedImage);
             }
         }

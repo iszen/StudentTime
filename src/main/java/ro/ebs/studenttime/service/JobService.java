@@ -44,7 +44,6 @@ public class JobService {
             e.printStackTrace();
 
         }
-        System.out.println("image to save "+bFile.toString());
         job.setImage(bFile);
 
         if (jobRepo.save(job) != null) {

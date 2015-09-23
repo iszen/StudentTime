@@ -7,7 +7,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import ro.ebs.studenttime.dao.JobRepository;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Past;
 import java.sql.Date;
 
 /**
@@ -30,9 +32,11 @@ public class Job{
     private String location;
     @NotNull
     @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
+    @Future
     private Date beginDate;
     @NotNull
     @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
+    @Future
     private Date endDate;
     @Min(1)
     private int numberRequiredPersons;
