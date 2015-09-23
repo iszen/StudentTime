@@ -38,7 +38,7 @@ public class LoginController {
     private SignInService signInService;
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String returnHome(@ModelAttribute("signin") SigninAPI signinAPI, @ModelAttribute("login") LoginAPI login, @ModelAttribute("logout") String logout, HttpSession session, Model model) {
+    public String returnHome(@ModelAttribute("search") SearchAPI search,@ModelAttribute("signin") SigninAPI signinAPI, @ModelAttribute("login") LoginAPI login, @ModelAttribute("logout") String logout, HttpSession session, Model model) {
         if(signinAPI.getFirstname()!=null) {
             session.setAttribute("loggedUserName", signinAPI.getUsername());
             if (!signInService.performSignIn(signinAPI)) {

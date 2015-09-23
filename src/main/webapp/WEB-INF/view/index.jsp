@@ -53,9 +53,9 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <form:form class="navbar-form navbar-left">
         <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Post
+                Post something ...
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -81,7 +81,7 @@
         <% if (session.getAttribute("loggedUserName") == null) { %>
         <div id="navbar" class="navbar-collapse collapse">
             <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
-                <button type="submit" class="btn btn-success">Sign up</button>
+                <button type="submit" class="btn btn-warning">Sign up</button>
             </form:form>
             <form:form class="navbar-form navbar-right" method="post" action="/" modelAttribute="login">
                 <div class="form-group">
@@ -90,13 +90,13 @@
                 <div class="form-group">
                     <form:password placeholder="Password" class="form-control" path="password"/>
                 </div>
-                <button type="submit" class="btn btn-success">Log in</button>
+                <button type="submit" class="btn btn-warning">Log in</button>
             </form:form>
         </div>
         <% } else {%>
         <div class="navbar-form navbar-right">
             <form:form method="post" modelAttribute="logout" action="/">
-                <button type="submit" class="btn btn-success">Log out</button>
+                <button type="submit" class="btn btn-warning">Log out</button>
             </form:form>
         </div>
         <a class="navbar-brand navbar-right" href="#">Welcome <%= session.getAttribute("loggedUserName")%>!</a>
@@ -107,7 +107,7 @@
 </nav>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
+<div class="jumbotron" style="background-size: 100%;background-image: url()">
     <p class="container">
 
     <h1>Student Time</h1>
@@ -123,7 +123,7 @@
     <li><a data-toggle="tab" href="#menu2"><h2>Notices</h2></a></li>
 </ul>
 
-<div class="tab-content">
+<div class="tab-content" style="background-color: #555555">
     <div id="home" class="tab-pane fade in active">
         <br/><br/>
 
@@ -132,7 +132,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit">Find a job</button>
+                        <button class="btn btn-warning" type="submit">Find a job</button>
                     </span>
                     <form:input path="searchJob" class="form-control" placeholder="Search for a job..."/>
 
@@ -145,7 +145,7 @@
             <br/><br/>
             <c:forEach items="${jobList}" var="job">
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <div class="thumbnail">
+                    <div class="thumbnail"  style="width: 300px;height: 250px;background-image: url(http://ginva.com/wp-content/uploads/2012/02/simple-wallpaper-20.jpg); background-size: 100%">
                         <c:set var="imgName" value="image${job.id}"/>
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
                              alt=".."
@@ -161,10 +161,10 @@
                             </c:choose>
                             <p><c:out value="Owner: ${job.owner.username}"/></p>
 
-                            <p><a href="/email?jobprofiletitle=${job.title}" class="btn btn-primary"
+                            <p><a href="/email?jobprofiletitle=${job.title}" class="btn btn-danger"
                                   role="submit">Apply</a> <a
                                     href="http://localhost:8080/jobProfile?jobtitle=${job.title}"
-                                    class="btn btn-success"
+                                    class="btn btn-warning"
                                     role="submit">Read More</a>
                         </div>
                     </div>
