@@ -98,9 +98,9 @@ public class JobController {
         emailAPI.setTo(jobAPI.getOwner().getEmail().toString());
         if (emailService.sendEmail(emailAPI)) {
             System.out.println(emailAPI.toString());
-            return "successSentEmail";
+            return "email";
         }
-        return "errorSentEmail";
+        return "error";
 
     }
 

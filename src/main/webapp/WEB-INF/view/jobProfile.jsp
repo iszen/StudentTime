@@ -16,43 +16,7 @@
 <%@ page isELIgnored="false" session="true" %>
 
 <html>
-<head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-    <title>Student Time</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../webapp/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]>
-    <script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
+<%@include file="header.html" %>
 
 <body>
 
@@ -101,9 +65,9 @@
         </div>
         <% } else {%>
         <div class="navbar-form navbar-right">
-            <form:form method="post"  action="logout">
+            <form:form method="post" action="logout">
                 <button type="submit" class="btn btn-success">Log out</button>
-            </form:form>        </div>
+            </form:form></div>
         <a class="navbar-brand navbar-right" href="#">Welcome <%= session.getAttribute("loggedUserName")%>!</a>
         <%}%>
 
@@ -124,86 +88,73 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-            <A href="edit.html">Edit Profile</A>
 
-            <A href="edit.html">Logout</A>
-            <br>
-            <br/><br/>
-            <%--<p class=" text-info">May 05,2014,03:00 pm </p>--%>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+        <br>
+        <br/><br/>
+        <%--<p class=" text-info">May 05,2014,03:00 pm </p>--%>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
 
 
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><c:out value="${job.title}"/></h3>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title"><c:out value="${job.title}"/></h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
 
-                        <div class="col-md-3 col-lg-3 " align="center">
-                            <c:set var="imageName" value="image${job.id}" />
-                            <img alt="User Pic"
-                                 src="data:image/jpeg;base64,${requestScope[imageName]}"
-                                 height="90" width="90"
-                                 class="img-circle img-responsive">
-                            <h4><c:out value="${job.owner.username}"/></h4>
-                        </div>
+                    <div class="col-md-3 col-lg-3 " align="center">
+                        <c:set var="imageName" value="image${job.id}"/>
+                        <img alt="User Pic"
+                             src="data:image/jpeg;base64,${requestScope[imageName]}"
+                             height="90" width="90"
+                             class="img-circle img-responsive">
+                        <h4><c:out value="${job.owner.username}"/></h4>
+                    </div>
 
-                        <div class=" col-md-9 col-lg-9 ">
-                            <table class="table table-user-information">
+                    <div class=" col-md-9 col-lg-9 ">
+                        <table class="table table-user-information">
 
-                                <tbody>
-                                <tr>
-                                    <td>Location:</td>
-                                    <td><c:out value="${job.location}"/></td>
-                                </tr>
-                                <tr>
-                                    <td>Start Date:</td>
-                                    <td><c:out value="${job.beginDate}"/></td>
-                                </tr>
-                                <tr>
-                                    <td>End Date</td>
-                                    <td><c:out value="${job.endDate}"/></td>
-                                </tr>
+                            <tbody>
+                            <tr>
+                                <td>Location:</td>
+                                <td><c:out value="${job.location}"/></td>
+                            </tr>
+                            <tr>
+                                <td>Start Date:</td>
+                                <td><c:out value="${job.beginDate}"/></td>
+                            </tr>
+                            <tr>
+                                <td>End Date</td>
+                                <td><c:out value="${job.endDate}"/></td>
+                            </tr>
 
-                                <tr>
-                                <tr>
-                                    <td>Number of required persons:</td>
-                                    <td><c:out value="${job.numberRequiredPersons}"/></td>
-                                </tr>
-                                <tr>
-                                    <td>Salary:</td>
-                                    <td><c:out value="${job.salary}"/></td>
-                                </tr>
-                                <tr>
-                                    <td>Description</td>
-                                    <td><c:out value="${job.description}"/></td>
+                            <tr>
+                            <tr>
+                                <td>Number of required persons:</td>
+                                <td><c:out value="${job.numberRequiredPersons}"/></td>
+                            </tr>
+                            <tr>
+                                <td>Salary:</td>
+                                <td><c:out value="${job.salary}"/></td>
+                            </tr>
+                            <tr>
+                                <td>Description</td>
+                                <td><c:out value="${job.description}"/></td>
 
 
-                                </tbody>
-                            </table>
+                            </tbody>
+                        </table>
 
-                            <p align="right">
-                                <a href="#" class="btn btn-primary">Apply</a></p>
-                        </div>
+                        <p align="right">
+                            <a href="/email?jobprofiletitle=${job.title}" class="btn btn-primary">Apply</a></p>
                     </div>
                 </div>
-                <div class="panel-footer">
-                    <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button"
-                       class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                        <span class="pull-right">
-                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button"
-                               class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button"
-                               class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                        </span>
-                </div>
-
             </div>
+
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>
