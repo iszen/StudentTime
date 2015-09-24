@@ -3,6 +3,7 @@ package ro.ebs.studenttime.api;
 import ro.ebs.studenttime.model.User;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 /**
  * Created by Bella on 9/14/2015.
@@ -10,7 +11,7 @@ import java.sql.Date;
 public class JobAPI {
     private User owner;
 
-
+    private Integer id;
     private String title;
     private String description;
     private String location;
@@ -92,16 +93,27 @@ public class JobAPI {
         this.numberRequiredPersons = numberRequiredPersons;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "JobAPI{" +
-                "title='" + title + '\'' +
+                "owner=" + owner +
+                ", id=" + id +
+                ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", location='" + location + '\'' +
                 ", beginDate=" + beginDate +
                 ", endDate=" + endDate +
                 ", numberRequiredPersons=" + numberRequiredPersons +
                 ", salary=" + salary +
+                ", image=" + Arrays.toString(image) +
                 '}';
     }
 }

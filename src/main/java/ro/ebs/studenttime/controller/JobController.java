@@ -65,10 +65,10 @@ public class JobController {
     }
 
     @RequestMapping(value = "/jobProfile", method = RequestMethod.GET)
-    public ModelAndView jobProfile(@RequestParam("jobtitle") String title, JobAPI jobAPI, @ModelAttribute("login") LoginAPI loginAPI, Model model) {
-        System.out.println(title);
+    public ModelAndView jobProfile(@RequestParam("jobid") int id, JobAPI jobAPI, @ModelAttribute("login") LoginAPI loginAPI, Model model) {
+        System.out.println(id);
         ModelAndView m = new ModelAndView();
-        Job job = jobService.returnJob(title);
+        Job job = jobService.getJob(id);
         m.addObject("job", job);
         m.addObject("jobProfile");
         if (job.getImage() != null) {
@@ -131,7 +131,7 @@ public class JobController {
     public void showVolunteers(Model model, SearchAPI search) {
         List<Volunteering> volunteerList;
         if (search == null || search.getSearchVol() == null || search.getSearchVol().isEmpty())
-            volunteerList  = volService.getVolunteers();
+            volunteerList = volService.getVolunteers();
         else
             volunteerList = volService.getMatchingVolunteers(search.getSearchVol());
 
@@ -149,9 +149,9 @@ public class JobController {
     public void showNotices(Model model, SearchAPI search) {
         List<Notice> noticeList;
         if (search == null || search.getSearchNotice() == null || search.getSearchNotice().isEmpty())
-            noticeList= noticeService.getNotices();
+            noticeList = noticeService.getNotices();
         else
-            noticeList= noticeService.getMatchingNotices(search.getSearchNotice());
+            noticeList = noticeService.getMatchingNotices(search.getSearchNotice());
         model.addAttribute("noticeList", noticeList);
     }
 }

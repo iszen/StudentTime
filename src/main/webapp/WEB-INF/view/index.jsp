@@ -83,19 +83,18 @@
             <form:form class="navbar-form navbar-right" method="get" action="signin" modelAttribute="signin">
                 <button type="submit" class="btn btn-warning">Sign up</button>
             </form:form>
-            <form:form class="navbar-form navbar-right" method="post" action="/" modelAttribute="login" onsubmit='return validateMyForm()'>
+            <form:form class="navbar-form navbar-right" method="post" action="/" modelAttribute="login"
+                       onsubmit='return validateMyForm()'>
                 <div class="form-group">
                     <form:input type="text" id="username" placeholder="Username" class="form-control" path="username"/>
                 </div>
                 <div class="form-group">
-                    <form:password  id="password" placeholder="Password" class="form-control" path="password"/>
+                    <form:password id="password" placeholder="Password" class="form-control" path="password"/>
                 </div>
                 <button type="submit" class="btn btn-warning">Log in</button>
                 <script type="text/javascript">
-                    function validateMyForm()
-                    {
-                        if (document.getElementById('username').value.length == 0 || document.getElementById('password').value.length == 0)
-                        {
+                    function validateMyForm() {
+                        if (document.getElementById('username').value.length == 0 || document.getElementById('password').value.length == 0) {
                             window.alert("Don't leave any fields empty!");
                             return false;
                         }
@@ -134,29 +133,31 @@
     <li><a data-toggle="tab" href="#menu2"><h2>Notices</h2></a></li>
 </ul>
 
-<div class="tab-content" style="background-color: #555555">
+<%--<div class="tab-content" style="background-color: #555555">--%>
+<div class="tab-content" style="background-color:#660029 ">
     <div id="home" class="tab-pane fade in active">
         <br/><br/>
 
         <div class="row">
             <form:form action="/" method="get" modelAttribute="search">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="input-group">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="input-group">
                     <span class="input-group-btn">
                         <button class="btn btn-warning" type="submit">Find a job</button>
                     </span>
-                    <form:input path="searchJob" class="form-control" placeholder="Search for a job..."/>
+                        <form:input path="searchJob" class="form-control" placeholder="Search for a job..."/>
 
+                    </div>
+                    <!-- /input-group -->
                 </div>
-                <!-- /input-group -->
-            </div>
-            <!-- /.col-lg-6 -->
-             </form:form>
+                <!-- /.col-lg-6 -->
+            </form:form>
             <br/><br/>
             <br/><br/>
             <c:forEach items="${jobList}" var="job">
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <div class="thumbnail"  style="width: 300px;height: 250px;background-image: url(http://ginva.com/wp-content/uploads/2012/02/simple-wallpaper-20.jpg); background-size: 100%">
+                    <div class="thumbnail"
+                         style="width: 300px;height: 250px;background-image: url(http://ginva.com/wp-content/uploads/2012/02/simple-wallpaper-20.jpg); background-size: 100%">
                         <c:set var="imgName" value="image${job.id}"/>
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
                              alt=".."
@@ -174,7 +175,7 @@
 
                             <p><a href="/email?jobprofiletitle=${job.title}" class="btn btn-danger"
                                   role="submit">Apply</a> <a
-                                    href="http://localhost:8080/jobProfile?jobtitle=${job.title}"
+                                    href="http://localhost:8080/jobProfile?jobid=${job.id}"
                                     class="btn btn-warning"
                                     role="submit">Read More</a>
                         </div>

@@ -39,8 +39,6 @@ public class EmailService {
         mailMsg.setTo(emailAPI.getTo());
         mailMsg.setSubject(emailAPI.getSubject());
         mailMsg.setText(emailAPI.getText());
-//        FileSystemResource file = new FileSystemResource(new File("C:\\Users\\Ioana\\Desktop\\Europass-CV-20140319-Cioca-RO.pdf"));
-//        mailMsg.addAttachment("Europass-CV-20140319-Cioca-RO.pdf", file);
         FileSystemResource file = new FileSystemResource(new File(emailAPI.getFile().getPath()));
         mailMsg.addAttachment(emailAPI.getFile().getName(), file);
         javaMailSender.send(mimeMessage);
