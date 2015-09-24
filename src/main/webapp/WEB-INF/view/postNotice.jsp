@@ -63,7 +63,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form:form method="post" action="/postNotice" modelAttribute="postNotice">
+            <form:form method="post" action="/postNotice" modelAttribute="postNotice" id="postNoticeForm">
             <div class="form-group">
                 <div class="form-group>
                     <label for=" title
@@ -74,7 +74,7 @@
             <br/>
             <label for="notice">Your notice:</label>
 
-            <form:textarea path="text" class="form-control" rows="5" id="notice"/>
+            <form:textarea path="text" class="form-control" rows="5" id="notice" minlength="10"/>
 
         </div>
                 <span class="input-group-btn">
@@ -90,6 +90,7 @@
     function successPost() {
         alert("Congratulations you just posted a notice! Now... go Home");
     }
+    $("#postNoticeForm").validate();
 </script>
 </body>
 </html>

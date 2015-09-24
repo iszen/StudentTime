@@ -26,11 +26,6 @@ public class EmailService {
     @Autowired
     JavaMailSender javaMailSender;
 
-//    @Autowired
-//    public void setMailSender(JavaMailSenderImpl mailSender) {
-//        this.javaMailSender = mailSender;
-//    }
-
     public boolean sendEmail(EmailAPI emailAPI) throws MessagingException {
 
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
