@@ -38,17 +38,17 @@ public class LoginController {
     private SignInService signInService;
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String returnHome(@ModelAttribute("search") SearchAPI search,@ModelAttribute("signin") SigninAPI signinAPI, @ModelAttribute("login") LoginAPI login, @ModelAttribute("logout") String logout, HttpSession session, Model model) {
-        if(signinAPI.getFirstname()!=null) {
+    public String returnHome(@ModelAttribute("search") SearchAPI search, @ModelAttribute("signin") SigninAPI signinAPI, @ModelAttribute("login") LoginAPI login, @ModelAttribute("logout") String logout, HttpSession session, Model model) {
+        if (signinAPI.getFirstname() != null) {
             session.setAttribute("loggedUserName", signinAPI.getUsername());
             if (!signInService.performSignIn(signinAPI)) {
                 return "errorSignin";
             }
-        }else if (login.getPassword() != null && login.getUsername() != null) {
+        } else if (login.getPassword() != null && login.getUsername() != null) {
             if (service.performLogin(login)) {
                 session.setAttribute("loggedUserName", login.getUsername());
             } else return "errorLogin";
-        }else{
+        } else {
             session.invalidate();
         }
         showJobs(model);
@@ -67,7 +67,7 @@ public class LoginController {
         jobList = jobService.getJobs();
         for (Job job : jobList) {
             if (job.getImage() != null) {
-                String attribute = "image"+job.getId().toString();
+                String attribute = "image" + job.getId().toString();
                 String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(job.getImage()));
                 model.addAttribute(attribute, encodedImage);
             }
@@ -75,11 +75,11 @@ public class LoginController {
         model.addAttribute("jobList", jobList);
     }
 
-    public void showVolunteers(Model model){
-        List<Volunteering> volunteerList= volService.getVolunteers();
+    public void showVolunteers(Model model) {
+        List<Volunteering> volunteerList = volService.getVolunteers();
         for (Volunteering vol : volunteerList) {
             if (vol.getImage() != null) {
-                String attribute = "image"+vol.getId().toString();
+                String attribute = "image" + vol.getId().toString();
                 String encodedImage = new String(org.apache.commons.codec.binary.Base64.encodeBase64(vol.getImage()));
                 model.addAttribute(attribute, encodedImage);
             }

@@ -62,7 +62,7 @@
     </div>
 
 </div>
-<form:form method="post" action="/postVolunteering" modelAttribute="postVolunteering" id="postJobForm">
+<form:form method="post" action="/" modelAttribute="postVolunteering" id="postVolForm">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
@@ -133,16 +133,19 @@
     </div>
 </form:form>
 <script>
-    function successPost() {
-        alert("Congratulations you just posted a volunteer work! Now... go Home");
-    }
-    $("#postJobForm").validate();
-    $("#nrPersons").change(function () {
+    $("#postVolForm").validate();
+    $("#postVolForm").change(function () {
         if ($(this).val() < 1) {
             alert("You need at least 1 person. Don't you?");
             $(this).val(1);
-        }
-        ;
+        };
+    });
+    $(function () {
+        $("#postVolForm").submit(function () {
+            if ($(this).valid()) {
+                alert("You just posted a volunteer work!");
+            } else alert("Invalid form...");
+        });
     });
 </script>
 </body>
