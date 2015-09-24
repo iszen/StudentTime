@@ -159,7 +159,7 @@
                     <div class="thumbnail"  style="width: 300px;height: 250px;background-image: url(http://ginva.com/wp-content/uploads/2012/02/simple-wallpaper-20.jpg); background-size: 100%">
                         <c:set var="imgName" value="image${job.id}"/>
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
-                             alt=".."
+                             alt="No image available"
                              height="90" width="90">
 
                         <div class="caption">
@@ -211,7 +211,7 @@
                     <div class="thumbnail">
                         <c:set var="imgName" value="image${volunteer.id}"/>
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
-                             alt=".."
+                             alt="No image available"
                              height="100" width="100">
 
                         <div class="caption">

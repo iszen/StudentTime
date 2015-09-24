@@ -100,14 +100,14 @@
                 <label for="nrPersons">Number of required persons:</label>
                 <form:input path="numberRequiredPersons" type="number" class="form-control"
                             placeholder="How many people do you need?"
-                            aria-describedby="basic-addon1" required="required" id="nrPersons"/>
+                            aria-describedby="basic-addon1" required="required" id="nrPersons" value="1"/>
             </div>
             <br/>
 
             <div class="form-group">
                 <label for="salary">Salary:</label>
                 <form:input path="salary" type="number" class="form-control" placeholder="How much pay do they get?"
-                            aria-describedby="basic-addon1" required="required" id="salary"/>
+                            aria-describedby="basic-addon1" required="required" id="salary" value="1.1"/>
             </div>
             <br/>
 
@@ -118,7 +118,8 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Upload an image:</label>
-                <form:input path="image" id="input-1" type="file" class="file"/>
+                <form:input path="image" id="input-1" type="file" class="file form-control"
+                            aria-describedby="basic-addon1"/>
             </div>
             <br/>
                 <span class="form-group-btn">
@@ -150,13 +151,7 @@
         }
         ;
     });
-    $("#beginDate").change(function () {
-        if (dates.compare(new Date($(this).value), new Date()) < 0) {
-            alert("You can not post a job in the past!");
-            $(this).val(new Date());
-        }
-        ;
-    });
+
 </script>
 </body>
 </html>

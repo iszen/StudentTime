@@ -105,7 +105,7 @@
 
                     <div class="col-md-3 col-lg-3 " align="center">
                         <c:set var="imageName" value="image${job.id}"/>
-                        <img alt="User Pic"
+                        <img alt="No image available"
                              src="data:image/jpeg;base64,${requestScope[imageName]}"
                              height="90" width="90"
                              class="img-circle img-responsive">
