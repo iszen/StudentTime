@@ -83,10 +83,10 @@ public class JobController {
     }
 
     @RequestMapping(value = "/email", method = RequestMethod.GET)
-    public String getEmailForm(@RequestParam("jobprofiletitle") String jobTitle, @ModelAttribute("login") LoginAPI loginAPI, @ModelAttribute("postJob") JobAPI jobAPI, @ModelAttribute("email") EmailAPI emailAPI, HttpSession session, Model model) {
+    public String getEmailForm(@RequestParam("jobProfileId") String jobProfileId, @ModelAttribute("login") LoginAPI loginAPI, @ModelAttribute("postJob") JobAPI jobAPI, @ModelAttribute("email") EmailAPI emailAPI, HttpSession session, Model model) {
         if (session.getAttribute("loggedUserName") != null) {
-            Job job = jobService.returnJob(jobTitle);
-            model.addAttribute("job", job);
+            Job job = jobService.returnJob(jobProfileId);
+            model.addAttribute("jobProfileId", job);
             return "email";
         }
         return "login";

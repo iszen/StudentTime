@@ -158,10 +158,14 @@
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                     <div class="thumbnail"
                          style="width: 300px;height: 250px;background-image: url(http://ginva.com/wp-content/uploads/2012/02/simple-wallpaper-20.jpg); background-size: 100%">
+
                         <c:set var="imgName" value="image${job.id}"/>
+
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
+                             onError="this.src = 'C:/Users/Ioana/Desktop/default.png'"
                              alt=".."
                              height="90" width="90">
+
 
                         <div class="caption">
                             <c:set var="jobTitle" value="${job.title}"/>
@@ -173,7 +177,7 @@
                             </c:choose>
                             <p><c:out value="Owner: ${job.owner.username}"/></p>
 
-                            <p><a href="/email?jobprofiletitle=${job.title}" class="btn btn-danger"
+                            <p><a href="/email?jobProfileId=${job.id}" class="btn btn-danger"
                                   role="submit">Apply</a> <a
                                     href="http://localhost:8080/jobProfile?jobid=${job.id}"
                                     class="btn btn-warning"
