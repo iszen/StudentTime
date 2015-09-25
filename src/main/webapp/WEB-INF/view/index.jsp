@@ -163,7 +163,7 @@
 
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
                              onError="this.src = 'C:/Users/Ioana/Desktop/default.png'"
-                             alt=".."
+                             alt="No image available"
                              height="90" width="90">
 
 
@@ -216,7 +216,7 @@
                     <div class="thumbnail">
                         <c:set var="imgName" value="image${volunteer.id}"/>
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
-                             alt=".."
+                             alt="No image available"
                              height="100" width="100">
 
                         <div class="caption">

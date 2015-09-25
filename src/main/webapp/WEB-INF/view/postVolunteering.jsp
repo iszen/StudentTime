@@ -62,7 +62,7 @@
     </div>
 
 </div>
-<form:form method="post" action="/postVolunteering" modelAttribute="postVolunteering" id="postJobForm">
+<form:form method="post" action="/" modelAttribute="postVolunteering" id="postVolForm">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
@@ -100,14 +100,14 @@
                 <label for="nrPersons">Number of required persons:</label>
                 <form:input path="numberRequiredPersons" type="number" class="form-control"
                             placeholder="How many people do you need?"
-                            aria-describedby="basic-addon1" required="required" id="nrPersons"/>
+                            aria-describedby="basic-addon1" required="required" id="nrPersons" value="1"/>
             </div>
             <br/>
 
             <div class="form-group">
                 <label for="certificate">Do they get a certificate?</label>
                 <form:checkbox path="active" class="form-control" aria-label="..."
-                               aria-describedby="basic-addon1" id="certificate"/>
+                               aria-describedby="basic-addon1" id="certificate" checked="checked"/>
             </div>
             <br/>
 
@@ -133,30 +133,19 @@
     </div>
 </form:form>
 <script>
-    function successPost() {
-        alert("Congratulations you just posted a volunteer work! Now... go Home");
-    }
-    $("#postJobForm").validate();
-    $("#nrPersons").change(function () {
+    $("#postVolForm").validate();
+    $("#postVolForm").change(function () {
         if ($(this).val() < 1) {
             alert("You need at least 1 person. Don't you?");
             $(this).val(1);
-        }
-        ;
+        };
     });
-    $("#salary").change(function () {
-        if ($(this).val() < 1) {
-            alert("Nobody works for free...");
-            $(this).val(1);
-        }
-        ;
-    });
-    $("#beginDate").change(function () {
-        if (dates.compare(Date.parse($(this).value), new Date()) < 0) {
-            alert("You can not post a job in the past!");
-            $(this).val(new Date());
-        }
-        ;
+    $(function () {
+        $("#postVolForm").submit(function () {
+            if ($(this).valid()) {
+                alert("You just posted a volunteer work!");
+            } else alert("Invalid form...");
+        });
     });
 </script>
 </body>
