@@ -19,6 +19,7 @@ public class NoticeService {
 
     public boolean postNotice(NoticeAPI noticeAPI){
         Notice notice = new Notice();
+        notice.setTitle(noticeAPI.getTitle());
         notice.setText(noticeAPI.getText());
         notice.setOwner(noticeAPI.getOwner());
         if( noticeRepo.save(notice)!= null){

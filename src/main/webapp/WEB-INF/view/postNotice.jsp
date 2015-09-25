@@ -63,7 +63,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form:form method="post" action="/" modelAttribute="postNotice" id="postNoticeForm">
+            <form:form method="post" action="/postNotice" modelAttribute="postNotice" id="postNoticeForm">
             <div class="form-group">
                 <div class="form-group>
                     <label for=" title

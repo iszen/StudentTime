@@ -117,7 +117,8 @@
 </nav>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron" style="background-size: 100%;background-image: url()">
+<div class="jumbotron"
+     style="background-size: 100%;background-image: url(http://cache.desktopnexus.com/thumbseg/827/827295-bigthumbnail.jpg)">
     <p class="container">
 
     <h1>Student Time</h1>
@@ -128,13 +129,13 @@
 </div>
 </div>
 <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home"><h2>Jobs</h2></a></li>
-    <li><a data-toggle="tab" href="#menu1"><h2>Volunteer work</h2></a></li>
-    <li><a data-toggle="tab" href="#menu2"><h2>Notices</h2></a></li>
+    <li class="active"><a data-toggle="tab" href="#home" style="color:sienna"><h2>Jobs</h2></a></li>
+    <li><a data-toggle="tab" href="#menu1" style="color:sienna"><h2>Volunteer work</h2></a></li>
+    <li><a data-toggle="tab" href="#menu2" style="color:sienna"><h2>Notices</h2></a></li>
 </ul>
 
 <%--<div class="tab-content" style="background-color: #555555">--%>
-<div class="tab-content" style="background-color:#660029 ">
+<div class="tab-content" style="background-color:#101010 ">
     <div id="home" class="tab-pane fade in active">
         <br/><br/>
 
@@ -157,12 +158,12 @@
             <c:forEach items="${jobList}" var="job">
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                     <div class="thumbnail"
-                         style="width: 300px;height: 250px;background-image: url(http://ginva.com/wp-content/uploads/2012/02/simple-wallpaper-20.jpg); background-size: 100%">
+                         style="width: 300px;height: 250px;background-image: url(http://hdwpics.com/images/0F396A0BFB28/Wood-Texture.jpg); background-size: 100% 100%; background-repeat: no-repeat">
 
                         <c:set var="imgName" value="image${job.id}"/>
 
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
-                             onError="this.src = 'C:/Users/Ioana/Desktop/default.png'"
+                             onError="this.src = 'http://www.expat-news.com/wp-content/uploads/2011/04/JOB.jpg'"
                              alt="No image available"
                              height="90" width="90">
 
@@ -198,7 +199,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit">Find volunteering opportunities...</button>
+                        <button class="btn btn-warning" type="submit">Find volunteering opportunities</button>
                     </span>
                         <form:input path="searchVol" class="form-control" placeholder="Search for volunteer work..."/>
 
@@ -213,10 +214,11 @@
             <c:forEach items="${volunteerList}" var="volunteer">
 
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <div class="thumbnail">
+                    <div class="thumbnail"
+                         style="width: 300px;height: 250px;background-image: url(http://reachedmedia.com/wp-content/uploads/2014/05/Retro-WorshipBG-16-9-495x338.jpg); background-size: 100% 100%; background-repeat: no-repeat">
                         <c:set var="imgName" value="image${volunteer.id}"/>
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
-                             onError="this.src = 'C:/Users/Ioana/Desktop/default.png'"
+                             onError="this.src = 'http://bloximages.newyork1.vip.townnews.com/arundelnewsnet.com/content/tncms/assets/v3/editorial/5/2c/52c802dc-4a5c-11e5-b8fe-5f22226aa7f8/55db0f3f2275f.image.gif'"
                              alt="No image available"
                              height="100" width="100">
 
@@ -250,7 +252,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit">Find the latest notices...</button>
+                        <button class="btn btn-warning" type="submit">Find a notice</button>
                     </span>
                         <form:input path="searchNotice" class="form-control" placeholder="Search for a notice..."/>
 
@@ -265,11 +267,12 @@
             <c:forEach items="${noticeList}" var="notice">
 
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <div class="thumbnail">
+                    <div class="thumbnail"
+                         style="width: 300px;height: 200px;background-image: url(http://hdwpics.com/images/1DEF22C2784D/Yellow-Abstract-Background.jpg); background-size: 100% 100%; background-repeat: no-repeat">
 
                         <div class="caption">
-                            <p><c:set var="noticeTitle" value="${notice.title}"/>
-                                <b><c:out value="Owner: ${notice.owner.username}"/></b></p>
+                            <p><b><c:out value="Title: ${notice.title}"/></b></p>
+                               <p> <b><c:out value="Owner: ${notice.owner.username}"/></b></p>
 
                             <c:set var="noticeText" value="${notice.text}"/>
                             <c:choose>
