@@ -198,7 +198,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit">Find a job</button>
+                        <button class="btn btn-default" type="submit">Find volunteering opportunities...</button>
                     </span>
                         <form:input path="searchVol" class="form-control" placeholder="Search for volunteer work..."/>
 
@@ -216,6 +216,7 @@
                     <div class="thumbnail">
                         <c:set var="imgName" value="image${volunteer.id}"/>
                         <img src="data:image/jpeg;base64,${requestScope[imgName]}"
+                             onError="this.src = 'C:/Users/Ioana/Desktop/default.png'"
                              alt="No image available"
                              height="100" width="100">
 
@@ -249,7 +250,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit">Find a job</button>
+                        <button class="btn btn-default" type="submit">Find the latest notices...</button>
                     </span>
                         <form:input path="searchNotice" class="form-control" placeholder="Search for a notice..."/>
 
@@ -267,7 +268,8 @@
                     <div class="thumbnail">
 
                         <div class="caption">
-                            <p><b><c:out value="Owner: ${notice.owner.username}"/></b></p>
+                            <p><c:set var="noticeTitle" value="${notice.title}"/>
+                                <b><c:out value="Owner: ${notice.owner.username}"/></b></p>
 
                             <c:set var="noticeText" value="${notice.text}"/>
                             <c:choose>

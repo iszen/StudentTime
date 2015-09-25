@@ -100,6 +100,7 @@
                             <c:set var="imageName" value="image${volunteer.id}"/>
                             <img alt="No image available"
                                  src="data:image/jpeg;base64,${requestScope[imageName]}"
+                                 onError="this.src = 'C:/Users/Ioana/Desktop/default.png'"
                                  height="90" width="90"
                                  class="img-circle img-responsive">
                             <h4><c:out value="${volunteer.owner.username}"/></h4>
