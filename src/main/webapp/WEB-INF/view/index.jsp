@@ -48,7 +48,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body style="background-color: #FFFF66">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <form:form class="navbar-form navbar-left">
@@ -128,10 +128,10 @@
 
 </div>
 </div>
-<ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home" style="color:sienna"><h2>Jobs</h2></a></li>
-    <li><a data-toggle="tab" href="#menu1" style="color:sienna"><h2>Volunteer work</h2></a></li>
-    <li><a data-toggle="tab" href="#menu2" style="color:sienna"><h2>Notices</h2></a></li>
+<ul class="nav nav-tabs"  >
+    <li class="active"><a style="background-color:#d58512; color: sienna" data-toggle="tab" href="#home"><h2>Jobs</h2></a></li>
+    <li ><a data-toggle="tab" href="#menu1" style="background-color:#d58512; color: sienna" ><h2>Volunteer work</h2></a></li>
+    <li ><a data-toggle="tab" href="#menu2" style="background-color:#d58512; color: sienna" ><h2>Notices</h2></a></li>
 </ul>
 
 <%--<div class="tab-content" style="background-color: #555555">--%>

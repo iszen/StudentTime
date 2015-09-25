@@ -120,7 +120,7 @@
             <div class="form-group">
                 <label class="control-label">Upload an image:</label>
                 <form:input path="image" id="input-1" type="file" class="form-control"
-                            aria-describedby="basic-addon1" cssStyle="background-color: #ec971f"/>
+                            aria-describedby="basic-addon1"/>
             </div>
             <br/>
                 <span class="form-group-btn">

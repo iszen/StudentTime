@@ -10,12 +10,12 @@
 <html lang="en">
 
 <%@include file="header.html" %>
-<body>
+<body style="background-color: #FFFF66">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <form:form class="navbar-form navbar-left">
         <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Post
                 <span class="caret"></span>
@@ -41,14 +41,13 @@
 
         <div class="navbar-form navbar-right">
             <form:form method="post" modelAttribute="logout" action="/">
-                <button type="submit" class="btn btn-success">Log out</button>
+                <button type="submit" class="btn btn-warning">Log out</button>
             </form:form></div>
 
     </div>
 </nav>
-
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
+<div class="jumbotron"     style="background-size: 100%;background-image: url(http://cache.desktopnexus.com/thumbseg/827/827295-bigthumbnail.jpg)">
     <p class="container">
 
     <div align="center">
@@ -123,7 +122,7 @@
             </div>
             <br/>
                 <span class="form-group-btn">
-                    <button class="btn btn-success pull-right" type="submit" onclick="javascript:successPost()">Post
+                    <button class="btn btn-danger pull-right" type="submit" onclick="javascript:successPost()">Post
                     </button>
                 </span>
             <br/>
