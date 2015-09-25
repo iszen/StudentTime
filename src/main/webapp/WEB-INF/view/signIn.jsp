@@ -10,12 +10,12 @@
 <html lang="en">
 
 <%@include file="header.html" %>
-<body>
+<body style="background-color: #FFFF66">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <form:form class="navbar-form navbar-left">
         <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Post
                 <span class="caret"></span>
@@ -42,8 +42,9 @@
 </nav>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-    <p class="container">
+<div class="jumbotron" style="background-size: 100%;background-image: url(http://cache.desktopnexus.com/thumbseg/827/827295-bigthumbnail.jpg)">
+
+<p class="container">
 
     <div align="center">
         <h1>Student Time</h1>
@@ -60,7 +61,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                    <%--<form>--%>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="title">Firstname</span>
@@ -105,10 +105,10 @@
                                 aria-describedby="basic-addon1" required="required"/>
                 </div>
 
-                    <%--//  </form>--%>
+                   <br/>
 
       <span class="input-group-btn">
-        <button type="submit" class="btn btn-success pull-right">Submit</button>
+        <button type="submit" class="btn btn-warning pull-right">Submit</button>
       </span>
             </div>
         </div>
