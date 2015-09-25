@@ -94,12 +94,13 @@ public class JobController {
     }
 
     @RequestMapping(value = "/email", method = RequestMethod.POST)
-    public String sendEmail(@ModelAttribute("email") EmailAPI emailAPI, HttpSession session, @ModelAttribute JobAPI jobAPI) throws MessagingException {
+    public String sendEmail(@ModelAttribute("email") EmailAPI emailAPI, HttpSession session, @ModelAttribute JobAPI jobAPI, Model model) throws MessagingException {
         jobAPI.setOwner(loginService.getUserByUsername(session.getAttribute("loggedUserName").toString()));
         emailAPI.setName(jobAPI.getOwner().getUsername().toString());
         emailAPI.setSubject("Studenttime Registration");
         emailAPI.setTo(jobAPI.getOwner().getEmail().toString());
         if (emailService.sendEmail(emailAPI)) {
+            jobAPI.setNumberRequiredPersons(jobAPI.getNumberRequiredPersons() - 1);
             System.out.println(emailAPI.toString());
             return "email";
         }

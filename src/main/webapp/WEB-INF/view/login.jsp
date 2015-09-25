@@ -10,7 +10,7 @@
 <html lang="en">
 
 <%@include file="header.html" %>
-<body>
+<body style="background-color: #FFFF66">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
 
@@ -28,7 +28,7 @@
     </div>
 </nav>
 
-<div class="jumbotron">
+<div class="jumbotron" style="background-size: 100%;background-image: url(http://cache.desktopnexus.com/thumbseg/827/827295-bigthumbnail.jpg)">
     <p class="container">
 
     <div align="center">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="col-sm-7">
-                    <button type="submit" class="btn btn-success pull-right">Log in</button>
+                    <button type="submit" class="btn btn-warning pull-right">Log in</button>
                 </div>
                 <br/>
                 <br/>
@@ -83,7 +83,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="col-sm-7">
 
-                    <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                    <button type="submit" class="btn btn-danger btn-block">Sign up</button>
                 </div>
             </div>
         </div>

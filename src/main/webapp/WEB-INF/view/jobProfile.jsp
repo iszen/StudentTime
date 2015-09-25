@@ -148,7 +148,7 @@
                         </table>
 
                         <p align="right">
-                            <a href="/email?jobprofiletitle=${job.title}" class="btn btn-primary">Apply</a></p>
+                            <a href="/email?jobProfileId=${job.id}" class="btn btn-primary">Apply</a></p>
                     </div>
                 </div>
             </div>
