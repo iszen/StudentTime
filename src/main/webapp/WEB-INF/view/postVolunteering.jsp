@@ -61,7 +61,7 @@
     </div>
 
 </div>
-<form:form method="post" action="/" modelAttribute="postVolunteering" id="postVolForm">
+<form:form method="post" action="/postVolunteering" modelAttribute="postVolunteering" id="postVolForm">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
