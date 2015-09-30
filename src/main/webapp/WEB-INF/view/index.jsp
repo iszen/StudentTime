@@ -233,9 +233,10 @@
                             </c:choose>
                             <p><c:out value="Owner: ${volunteer.owner.username}"/></p>
 
-                            <p><a href="/email" class="btn btn-primary" role="submit">Apply</a> <a
+                            <p><a href="/email?jobProfileId=${volunteer.id}" class="btn btn-danger"
+                                  role="submit">Apply</a> <a
                                     href="http://localhost:8080/volunteerProfile?volunteerTitle=${volunteer.title}"
-                                    class="btn btn-success"
+                                    class="btn btn-warning"
                                     role="submit">Read More</a>
                         </div>
                     </div>
@@ -286,7 +287,7 @@
                             </c:choose>
 
                             <p><a href="http://localhost:8080/noticeProfile?noticeText=${notice.text}"
-                                  class="btn btn-info btn-sm" role="submit">Read More</a>
+                                  class="btn btn-warning pull-right" role="submit">Read More</a>
                         </div>
                     </div>
                 </div>

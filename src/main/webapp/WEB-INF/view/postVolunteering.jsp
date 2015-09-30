@@ -133,7 +133,7 @@
 </form:form>
 <script>
     $("#postVolForm").validate();
-    $("#postVolForm").change(function () {
+    $("#nrPersons").change(function () {
         if ($(this).val() < 1) {
             alert("You need at least 1 person. Don't you?");
             $(this).val(1);

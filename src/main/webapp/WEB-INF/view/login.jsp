@@ -34,7 +34,7 @@
     <div align="center">
 
         <br/>
-        <h4>You have to be logged in to post on this website!</h4>
+        <h4>Please log in!</h4>
 
     </div>
 </div>

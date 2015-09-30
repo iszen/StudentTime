@@ -135,7 +135,7 @@
 </form:form>
 <script>
     function successPost() {
-        alert("Congratulations you just posted a job! Now... go Home");
+        alert("Congratulations you just posted a job!");
     }
     $("#postJobForm").validate();
     $("#nrPersons").change(function () {

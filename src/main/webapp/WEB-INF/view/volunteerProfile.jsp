@@ -100,7 +100,7 @@
                             <c:set var="imageName" value="image${volunteer.id}"/>
                             <img alt="No image available"
                                  src="data:image/jpeg;base64,${requestScope[imageName]}"
-                                 onError="this.src = 'C:/Users/Ioana/Desktop/default.png'"
+                                 onError="this.src = 'http://bloximages.newyork1.vip.townnews.com/arundelnewsnet.com/content/tncms/assets/v3/editorial/5/2c/52c802dc-4a5c-11e5-b8fe-5f22226aa7f8/55db0f3f2275f.image.gif'"
                                  height="90" width="90"
                                  class="img-circle img-responsive">
                             <h4><c:out value="${volunteer.owner.username}"/></h4>
@@ -143,7 +143,7 @@
                             </table>
 
                             <p align="right">
-                                <a href="#" class="btn btn-warning">Apply</a></p>
+                                <a href="/email?jobProfileId=${volunteer.id}" class="btn btn-warning">Apply</a></p>
                         </div>
                     </div>
                 </div>
