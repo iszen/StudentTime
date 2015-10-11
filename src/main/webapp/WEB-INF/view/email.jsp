@@ -79,7 +79,7 @@
 
                 <div class="form-group">
                     <label for="text">Text:</label>
-                    <form:input path="text" type="text" class="form-control"
+                    <form:textarea rows="5" path="text" type="text" class="form-control"
                                 placeholder="Tell us something about yourself..."
                                 aria-describedby="basic-addon1" required="required" id="text"/>
                 </div>
