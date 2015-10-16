@@ -65,7 +65,7 @@
         </div>
         <% } else {%>
         <div class="navbar-form navbar-right">
-            <form:form method="post" action="logout">
+            <form:form method="post" action="/" modelAttribute="logout">
                 <button type="submit" class="btn btn-warning">Log out</button>
             </form:form></div>
         <a class="navbar-brand navbar-right" href="#">Welcome <%= session.getAttribute("loggedUserName")%>!</a>
@@ -86,6 +86,7 @@
 
 </div>
 </div>
+<form:form modelAttribute="jobAPI" method="post" action="email">
 <div class="container">
     <div class="row">
 
@@ -157,5 +158,6 @@
     </div>
 </div>
 </div>
+</form:form>
 </body>
 </html>

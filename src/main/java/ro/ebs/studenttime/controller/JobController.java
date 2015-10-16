@@ -59,15 +59,17 @@ public class JobController {
     @RequestMapping(value = "/postJob", method = RequestMethod.POST)
     public String postJob(@ModelAttribute("postJob") JobAPI jobAPI, HttpSession session) {
         jobAPI.setOwner(loginService.getUserByUsername(session.getAttribute("loggedUserName").toString()));
-        if (jobService.postJob(jobAPI))
+        if (jobService.postJob(jobAPI)) {
+            session.setAttribute("owner", jobAPI.getOwner().getUsername());
             return "postJob";
+        }
         else return "error";
     }
 
     @RequestMapping(value = "/jobProfile", method = RequestMethod.GET)
 
-    public ModelAndView jobProfile(@RequestParam("jobid") int id, JobAPI jobAPI, @ModelAttribute("login") LoginAPI loginAPI, Model model) {
-        System.out.println(id);
+    public ModelAndView jobProfile(@RequestParam("jobid") int id, JobAPI jobAPI, @ModelAttribute("login") LoginAPI loginAPI, Model model, HttpSession session) {
+        System.out.println(jobAPI);
 
 
         ModelAndView m = new ModelAndView();
@@ -95,13 +97,16 @@ public class JobController {
 
     @RequestMapping(value = "/email", method = RequestMethod.POST)
     public String sendEmail(@ModelAttribute("email") EmailAPI emailAPI, HttpSession session, @ModelAttribute JobAPI jobAPI, Model model) throws MessagingException {
-        jobAPI.setOwner(loginService.getUserByUsername(session.getAttribute("loggedUserName").toString()));
+        System.out.println(jobAPI);
+        String owner = session.getAttribute("owner").toString();
+        jobAPI.setOwner(loginService.getUserByUsername(owner));
         emailAPI.setName(jobAPI.getOwner().getUsername().toString());
         emailAPI.setSubject("Studenttime Registration");
         emailAPI.setTo(jobAPI.getOwner().getEmail().toString());
         if (emailService.sendEmail(emailAPI)) {
             jobAPI.setNumberRequiredPersons(jobAPI.getNumberRequiredPersons() - 1);
             System.out.println(emailAPI.toString());
+
             return "email";
         }
         return "error";

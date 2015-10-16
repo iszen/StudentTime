@@ -36,6 +36,7 @@ public class LoginController {
     private NoticeService noticeService;
     @Autowired
     private SignInService signInService;
+    private String owner;
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String returnHome(@ModelAttribute("search") SearchAPI search, @ModelAttribute("signin") SigninAPI signinAPI, @ModelAttribute("login") LoginAPI login, @ModelAttribute("logout") String logout, HttpSession session, Model model) {
@@ -46,10 +47,13 @@ public class LoginController {
             }
         } else if (login.getPassword() != null && login.getUsername() != null) {
             if (service.performLogin(login)) {
+                session.setAttribute("owner",owner);
                 session.setAttribute("loggedUserName", login.getUsername());
             } else return "errorLogin";
         } else {
+            owner = session.getAttribute("owner").toString();
             session.invalidate();
+
         }
         showJobs(model);
         showNotices(model);
